@@ -10,10 +10,15 @@ const ProductGride = (products) => {
         <>
             <div className="container">
 
-                <div className="row g-4">
+                <div 
+                // className="row g-4"
+                className="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
                     {listproduct.map((product) => (
-                        <div key={product.id} className="col-12 col-md-6 col-lg-4">
-                            <div className="card border-1 shadow-sm p-3 text-center h-100 hover:bg-black group transition-all duration-300 rounded-0">
+                        <div key={product.id} 
+                        className="col"
+                                         
+                        >
+                            <div className="card border-1 shadow-sm p-3 text-center h-100 hover:bg-black group transition-all duration-300 rounded-0 ">
                                 <Link to={`/product/${product.id}`} className="text-decoration-none" style={{color:'black'}}>
                                     <img
                                         src={product.image}

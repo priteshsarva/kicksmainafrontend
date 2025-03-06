@@ -45,13 +45,18 @@ const SingleCollection = (products) => {
                 <div className="row">
                   
                     {/* Sidebar for Filters */}
-                    <div className="col-4 col-md-6 col-lg-8 ">
+                    <div 
+                    // className="col-4 col-md-6 col-lg-8 "
+                    style={{width:"16rem",padding:"1rem"}}
+                    >
                         <ProductFilters onFilterChange={handleFilterChange} />
                         
                     </div>
 
                     {/* Product Grid Section */}
-                    <div className="col">
+                    <div 
+                    className="col"
+                    >
                         <ProductGride products={filteredProducts.length > 0 ? filteredProducts : products} />
                             
                     </div>

@@ -69,6 +69,7 @@ body {
 .text-black {
   color: black;
 }
+
 .hover\:bg-black:hover {
   background-color: black;
 }
@@ -80,6 +81,7 @@ body {
 .transition-colors {
   transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
 }
+
 /* Carousel custom styles */
 .slick-prev:before,
 .slick-next:before {
@@ -98,11 +100,11 @@ body {
 }
 
 /* Table styles */
-.divide-y > * + * {
+.divide-y>*+* {
   border-top-width: 1px;
 }
 
-.divide-gray-200 > * + * {
+.divide-gray-200>*+* {
   border-color: rgb(229 231 235);
 }
 
@@ -173,6 +175,7 @@ body {
 
 .group:hover .group-hover\:bg-opacity-60 {
   --tw-bg-opacity: 0.6;
+  --bs-bg-opacity: 0.6;
 }
 
 .group:hover .group-hover\:text-black {

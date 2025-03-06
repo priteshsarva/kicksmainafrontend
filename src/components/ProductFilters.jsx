@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "bootstrap/dist/css/bootstrap.min.css";
+// import "bootstrap/dist/css/bootstrap.min.css";
 
 export default function ProductFilters({ onFilterChange }) {
     const [filters, setFilters] = useState({
