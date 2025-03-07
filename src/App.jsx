@@ -79,22 +79,13 @@ const App = () => {
             </>
           } />
            <Route
-          path="/product/"
+          path="/product/:id"
           element={
             <>
-              <ProductPage />
-              <h1>1</h1>
-
+              <ProductPage products={products}/>
             </>
           } />
-           <Route
-          path="/2/"
-          element={
-            <>
-              <h1>2</h1>
-            </>
-          } />
-          </Routes>
+          
         <FooterOne />
       </ Router>
     </>

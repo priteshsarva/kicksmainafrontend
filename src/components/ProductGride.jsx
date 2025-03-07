@@ -18,7 +18,8 @@ const ProductGride = (products) => {
                         className="col"                                         
                         >
                             <div className="card border-1 shadow-sm p-3 text-center h-100 hover:bg-black group transition-all duration-300 rounded-0 ">
-                                <Link to={`/product`} className="text-decoration-none" style={{color:'black'}}>
+                                <Link to={`/product/${product.id}`} className="text-decoration-none" style={{color:'black'}}>
+                                {/* <Link to={`/product/`} className="text-decoration-none" style={{color:'black'}}> */}
                                 {/* <a href={`/product/${product.id}`} className="text-decoration-none" style={{color:'black'}}> */}
 
                                     <img
