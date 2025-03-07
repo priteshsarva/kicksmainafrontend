@@ -1,5 +1,7 @@
 import React from 'react'
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+// import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route } from 'react-router-dom';
+
 import 'bootstrap/dist/js/bootstrap.bundle.min';
 import NavBaar from './components/Navbar';
 import './index.css'
@@ -10,6 +12,8 @@ import './custombootstrap.css';
 import ShoeCarousel from './components/ShoeCarousel';
 import FeaturedCategories from './components/FeaturedCategories';
 import SingleCollection from './components/singleCollection';
+import ProductPage from './components/ProductPage';
+
 import ProductGride from './components/ProductGride';
 
 const App = () => {
@@ -72,6 +76,22 @@ const App = () => {
               <ShoeCarousel productss={products} />
               <SingleCollection products={products}/>
               {/* <ProductGride products={products}/> */}
+            </>
+          } />
+           <Route
+          path="/product/"
+          element={
+            <>
+              <ProductPage />
+              <h1>1</h1>
+
+            </>
+          } />
+           <Route
+          path="/2/"
+          element={
+            <>
+              <h1>2</h1>
             </>
           } />
           </Routes>

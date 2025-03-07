@@ -42,6 +42,7 @@ const SingleCollection = (products) => {
         <>
             {/* Products with Filters */}
             <div className="container py-5">
+              
                 <div className="row">
                   
                     {/* Sidebar for Filters */}
