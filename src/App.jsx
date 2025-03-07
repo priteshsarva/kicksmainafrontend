@@ -66,26 +66,27 @@ const App = () => {
 
         <NavBaar />
         <Routes>
-        <Route
-          path="/"
-          element={
-            <>
-              <HeroSection />
-              <ShopBrand />
-              <FeaturedCategories />
-              <ShoeCarousel productss={products} />
-              <SingleCollection products={products}/>
-              {/* <ProductGride products={products}/> */}
-            </>
-          } />
-           <Route
-          path="/product/:id"
-          element={
-            <>
-              <ProductPage products={products}/>
-            </>
-          } />
-          
+          <Route
+            path="/"
+            element={
+              <>
+                <HeroSection />
+                <ShopBrand />
+                <FeaturedCategories />
+                <ShoeCarousel productss={products} />
+                <SingleCollection products={products} />
+                {/* <ProductGride products={products}/> */}
+              </>
+            } />
+          <Route
+            path="/product/:id"
+            element={
+              <>
+                <ProductPage products={products} />
+              </>
+            } />
+
+        </Routes>
         <FooterOne />
       </ Router>
     </>
