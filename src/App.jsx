@@ -26,7 +26,12 @@ const App = () => {
       id: 1,
       name: 'Classic Black Sneaker',
       price: 99.99,
-      image: 'https://images.unsplash.com/photo-1491553895911-0055eca6402d',
+      image: [
+        "https://images.unsplash.com/photo-1491553895911-0055eca6402d",
+        "https://images.unsplash.com/photo-1608256246200-53e635b5b65f",
+        "https://images.unsplash.com/photo-1603487742131-4160ec999306",
+        "https://images.unsplash.com/photo-1542291026-7eec264c27ff"
+      ],
       category: 'sneakers',
       brand: 'Nike'
     },
@@ -80,11 +85,8 @@ const App = () => {
             } />
           <Route
             path="/product/:id"
-            element={
-              <>
-                <ProductPage products={products} />
-              </>
-            } />
+            element={<ProductPage products={products} />}
+          />
 
         </Routes>
         <FooterOne />

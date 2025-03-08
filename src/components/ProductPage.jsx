@@ -5,6 +5,7 @@ export default function ProductPage({ products }) {
   const { id } = useParams();
   const product = products.find(p => p.id === parseInt(id));
   const [selectedSize, setSelectedSize] = useState('');
+  const [selectedImage, setSelectedImage] = useState(Array.isArray(product.image) ? product.image[0] : product.image); // Default to the first image
 
   const sizes = ['6', '7', '8', '9', '10', '11'];
   const brands = ['Nike', 'Adidas', 'Puma', 'New Balance'];
@@ -18,19 +19,42 @@ export default function ProductPage({ products }) {
     <div className="container py-5">
       <div className="row">
         {/* Product Image */}
-        <div className="col-md-6">
+        <div className="col-md-6 text-center">
           <img
-            src={product.image}
+            src={selectedImage}
             alt={product.name}
             className="img-fluid rounded"
-            style={{ height: '500px', objectFit: 'cover' }}
+            style={{ height: '500px', objectFit: 'cover', width: '100%' }}
           />
+
+          {/* Thumbnail Gallery */}
+          <div className="row g-2 py-2">
+            {
+              Array.isArray(product.image) ?  product.image.map((image, index) => (
+                <div key={index} className="col-3">
+                  <img
+                    src={image}
+                    alt={`${product.name} thumbnail ${index + 1}`}
+                    className="img-fluid rounded cursor-pointer"
+                    style={{
+                      height: '100px',
+                      objectFit: 'cover',
+                      width: '100%',
+                      border: selectedImage === image ? '2px solid #000' : '1px solid #ddd',
+                    }}
+                    onClick={() => setSelectedImage(image)}
+                  />
+                </div>
+              )) : ""
+             }
+          </div>
         </div>
+
 
         {/* Product Details */}
         <div className="col-md-6">
           <h1 className="display-4 mb-4">{product.name}</h1>
-          <p className="h2 mb-5">${product.price}</p>
+          {/* <p className="h2 mb-5">${product.price}</p> */}
 
           {/* Size Selection */}
           <div className="mb-5">
@@ -40,11 +64,10 @@ export default function ProductPage({ products }) {
                 <div key={size} className="col">
                   <button
                     onClick={() => setSelectedSize(size)}
-                    className={`btn w-100 ${
-                      selectedSize === size
-                        ? 'btn-dark'
-                        : 'btn-outline-dark'
-                    }`}
+                    className={`btn w-100 ${selectedSize === size
+                      ? 'btn-dark'
+                      : 'btn-outline-dark'
+                      }`}
                   >
                     US {size}
                   </button>
@@ -61,15 +84,32 @@ export default function ProductPage({ products }) {
             Add to Cart
           </button>
 
-          {/* Product Details Accordion */}
-          <div className="border-top pt-4">
-            <h3 className="h5 mb-3">Product Details</h3>
-            <p className="text-muted">
-              Premium quality footwear designed for comfort and style.
-              Made with high-quality materials and expert craftsmanship.
-            </p>
-          </div>
+
         </div>
+
+        {/* Product Details Accordion */}
+        <div className="border-top border-bottom pt-4">
+          <h3 className="h5 mb-3">Product Details</h3>
+          <p className="text-muted">
+            Premium quality footwear designed for comfort and style.
+            Made with high-quality materials and expert craftsmanship.
+          </p>
+          <p className="text-muted">
+            Premium quality footwear designed for comfort and style.
+            Made with high-quality materials and expert craftsmanship.
+          </p> <p className="text-muted">
+            Premium quality footwear designed for comfort and style.
+            Made with high-quality materials and expert craftsmanship.
+          </p> <p className="text-muted">
+            Premium quality footwear designed for comfort and style.
+            Made with high-quality materials and expert craftsmanship.
+          </p> <p className="text-muted">
+            Premium quality footwear designed for comfort and style.
+            Made with high-quality materials and expert craftsmanship.
+          </p>
+        </div>
+
+
       </div>
 
       {/* Similar Products */}
@@ -83,16 +123,16 @@ export default function ProductPage({ products }) {
               <div key={similarProduct.id} className="col">
                 <div className="card h-100">
                   <img
-                    src={similarProduct.image}
+                    src={similarProduct.image[0]}
                     alt={similarProduct.name}
                     className="card-img-top"
                     style={{ height: '200px', objectFit: 'cover' }}
                   />
                   <div className="card-body">
                     <h3 className="card-title">{similarProduct.name}</h3>
-                    <p className="card-text text-muted">
+                    {/* <p className="card-text text-muted">
                       ${similarProduct.price}
-                    </p>
+                    </p> */}
                   </div>
                 </div>
               </div>

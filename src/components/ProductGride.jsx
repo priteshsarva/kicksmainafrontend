@@ -23,7 +23,7 @@ const ProductGride = (products) => {
                                 {/* <a href={`/product/${product.id}`} className="text-decoration-none" style={{color:'black'}}> */}
 
                                     <img
-                                        src={product.image}
+                                        src={Array.isArray(product.image) ? product.image[0] : product.image}
                                         alt={product.name}
                                         className="card-img-top"
                                         style={{ height: "250px", objectFit: "cover" }}

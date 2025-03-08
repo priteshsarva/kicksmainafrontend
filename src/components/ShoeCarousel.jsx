@@ -55,7 +55,7 @@ export default function ShoeCarousel({ productss }) {
           <div key={product.id} className="px-2">
             <div className="card border-1 shadow-sm p-3 text-center m-3 h-100 hover:bg-black group transition-all duration-300 rounded-0">
               <img
-                src={product.image}
+                src={Array.isArray(product.image) ? product.image[0] : product.image}
                 alt={product.name}
                 className="card-img-top img-fluid"
                 style={{ height: "200px", objectFit: "cover" }}
