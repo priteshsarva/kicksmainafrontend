@@ -1,5 +1,7 @@
 import { useParams } from 'react-router-dom';
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
+
 
 export default function ProductPage({ products }) {
   const { id } = useParams();
@@ -30,7 +32,7 @@ export default function ProductPage({ products }) {
           {/* Thumbnail Gallery */}
           <div className="row g-2 py-2">
             {
-              Array.isArray(product.image) ?  product.image.map((image, index) => (
+              Array.isArray(product.image) ? product.image.map((image, index) => (
                 <div key={index} className="col-3">
                   <img
                     src={image}
@@ -46,7 +48,7 @@ export default function ProductPage({ products }) {
                   />
                 </div>
               )) : ""
-             }
+            }
           </div>
         </div>
 
@@ -120,22 +122,33 @@ export default function ProductPage({ products }) {
             .filter(p => p.id !== product.id && p.category === product.category)
             .slice(0, 4)
             .map(similarProduct => (
-              <div key={similarProduct.id} className="col">
-                <div className="card h-100">
-                  <img
-                    src={similarProduct.image[0]}
-                    alt={similarProduct.name}
-                    className="card-img-top"
-                    style={{ height: '200px', objectFit: 'cover' }}
-                  />
-                  <div className="card-body">
-                    <h3 className="card-title">{similarProduct.name}</h3>
-                    {/* <p className="card-text text-muted">
-                      ${similarProduct.price}
-                    </p> */}
-                  </div>
+              <>
+
+                <div key={similarProduct.id} className="col px-2">
+                  <Link to={`/product/${similarProduct.id}`} className="text-decoration-none" style={{ color: 'black' }}>
+                    <div className="card border-1 shadow-sm p-3 text-center m-3 h-100 hover:bg-black group transition-all duration-300 rounded-0">
+                      <img
+                        src={Array.isArray(similarProduct.image) ? similarProduct.image[0] : similarProduct.image}
+                        alt={similarProduct.name}
+                        className="card-img-top img-fluid"
+                        style={{ height: "200px", objectFit: "cover" }}
+                      />
+                      <div className="card-body">
+                        <h5 className="card-title fw-bold group-hover:text-white">{similarProduct.name}</h5>
+                        {/* <p className="text-muted">${product.price}</p> */}
+                        {/* <button
+                  onClick={() => addToCart(product)}
+                  className="btn btn-dark w-100"
+                >
+                  Add to Cart
+                </button> */}
+                      </div>
+                    </div>
+                  </Link>
                 </div>
-              </div>
+
+
+              </>
             ))}
         </div>
       </div>

@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 
 const ProductGride = (products) => {
     const listproduct = products.products.products
-    console.log(listproduct);
 
     return (
         <>

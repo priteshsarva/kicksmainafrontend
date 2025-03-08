@@ -38,34 +38,38 @@ const SingleCollection = (products) => {
 
 
 
-    return (
-        <>
-            {/* Products with Filters */}
-            <div className="container py-5">
-              
-                <div className="row">
-                  
-                    {/* Sidebar for Filters */}
-                    <div 
-                    // className="col-4 col-md-6 col-lg-8 "
-                    style={{width:"16rem",padding:"1rem"}}
-                    >
-                        <ProductFilters onFilterChange={handleFilterChange} />
-                        
-                    </div>
+  return (
+    <>
+      {/* Products with Filters */}
+      <div className="container py-5">
 
-                    {/* Product Grid Section */}
-                    <div 
-                    className="col"
-                    >
-                        <ProductGride products={filteredProducts.length > 0 ? filteredProducts : products} />
-                            
-                    </div>
-                </div>
-            </div>
+        <div className="row flex-column flex-sm-row">
 
-        </>
-    )
+          {/* Sidebar for Filters */}
+          <div
+            // className="col-4 col-md-6 col-lg-8 "
+            className="col-sm-4 col-md-4"
+            style={{
+              // maxWidth:"16rem",
+              padding: "1rem"
+            }}
+          >
+            <ProductFilters onFilterChange={handleFilterChange} />
+
+          </div>
+
+          {/* Product Grid Section */}
+          <div
+            className="col"
+          >
+            <ProductGride products={filteredProducts.length > 0 ? filteredProducts : products} />
+
+          </div>
+        </div>
+      </div>
+
+    </>
+  )
 }
 
 export default SingleCollection

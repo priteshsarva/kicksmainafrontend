@@ -3,6 +3,8 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 // import { useCart } from '../contexts/CartContext';
 import './ShoeCarousel.css'
+import { Link } from 'react-router-dom';
+
 
 export default function ShoeCarousel({ productss }) {
   // const { addToCart } = useCart();
@@ -54,6 +56,7 @@ export default function ShoeCarousel({ productss }) {
         {productss.map((product) => (
           <div key={product.id} className="px-2">
             <div className="card border-1 shadow-sm p-3 text-center m-3 h-100 hover:bg-black group transition-all duration-300 rounded-0">
+            <Link to={`/product/${product.id}`} className="text-decoration-none" style={{ color: 'black' }}>
               <img
                 src={Array.isArray(product.image) ? product.image[0] : product.image}
                 alt={product.name}
@@ -70,6 +73,7 @@ export default function ShoeCarousel({ productss }) {
                   Add to Cart
                 </button> */}
               </div>
+              </Link>
             </div>
           </div>
         ))}
