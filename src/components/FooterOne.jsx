@@ -1,30 +1,32 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
+
 import { Truck, RefreshCcw, ShieldCheck, Instagram, Facebook, MessageCircle, Star, } from 'lucide-react';
 
 const FooterOne = () => {
     const reviews = [
         {
-          id: 1,
-          name: "Sarah M.",
-          rating: 5,
-          text: "The most comfortable sneakers I've ever worn. Worth every penny!",
-          image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=1000"
+            id: 1,
+            name: "Sarah M.",
+            rating: 5,
+            text: "The most comfortable sneakers I've ever worn. Worth every penny!",
+            image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=1000"
         },
         {
-          id: 2,
-          name: "John D.",
-          rating: 5,
-          text: "Exceptional quality and style. These are my go-to shoes now.",
-          image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=1000"
+            id: 2,
+            name: "John D.",
+            rating: 5,
+            text: "Exceptional quality and style. These are my go-to shoes now.",
+            image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=1000"
         },
         {
-          id: 3,
-          name: "Emily R.",
-          rating: 5,
-          text: "Perfect fit and amazing customer service. Highly recommend!",
-          image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&q=80&w=1000"
+            id: 3,
+            name: "Emily R.",
+            rating: 5,
+            text: "Perfect fit and amazing customer service. Highly recommend!",
+            image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&q=80&w=1000"
         }
-      ];
+    ];
     return (
         <>
             {/* Customer Reviews */}
@@ -92,20 +94,28 @@ const FooterOne = () => {
             <footer className="bg-dark text-white py-5">
                 <div className="container px-3">
                     <div className="row g-4">
-                        <div className="col-md-4">
+                        <div className="col-md-3">
                             <h4 className="fw-bold mb-3">Contact</h4>
                             <p>support@solehub.com</p>
                             <p>+1 (555) 123-4567</p>
                         </div>
-                        <div className="col-md-4">
+                        <div className="col-md-3">
                             <h4 className="fw-bold mb-3">Customer Service</h4>
                             <ul className="list-unstyled">
-                                <li><a href="#" className="text-light text-decoration-none">Shipping Info</a></li>
-                                <li><a href="#" className="text-light text-decoration-none">Returns</a></li>
-                                <li><a href="#" className="text-light text-decoration-none">FAQ</a></li>
+                                <li><Link to="/shipping" className="text-light text-decoration-none">Shipping Info</Link></li>
+                                <li><Link to="/returns" className="text-light text-decoration-none">Returns</Link></li>
+                                <li><Link to="/faq" className="text-light text-decoration-none">FAQ</Link></li>
+                            </ul>
+
+                        </div>
+                        <div className="col-md-3">
+                            <h4 className="fw-bold mb-3">Legal</h4>
+                            <ul className="list-unstyled">
+                                <li><Link to="/terms" className="text-light text-decoration-none">Terms of Service</Link ></li>
+                                <li><Link to="/privacy" className="text-light text-decoration-none">Privacy Policy</Link ></li>
                             </ul>
                         </div>
-                        <div className="col-md-4">
+                        <div className="col-md-3">
                             <h4 className="fw-bold mb-3">Follow Us</h4>
                             <div className="d-flex gap-3">
                                 <Instagram className="cursor-pointer" style={{ width: "24px", height: "24px" }} />

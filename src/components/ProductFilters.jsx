@@ -38,7 +38,7 @@ export default function ProductFilters({ onFilterChange }) {
                 </button>
             </div> */}
 
-            <div className="filter-link text-end">
+            <div className="filter-link text-end d-sm-none">
                 <div onClick={() => setIsMobileFiltersOpen(!isMobileFiltersOpen)}
                     style={{ cursor: "pointer" }}>
                     <i className="bi bi-funnel-fill"></i>

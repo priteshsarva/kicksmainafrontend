@@ -6,14 +6,19 @@ const TermsOfService = () => {
       <div className="row justify-content-center">
         <div className="col-lg-10">
           <h1 className="fw-bold mb-4">Terms of Service</h1>
-          {/* <p className="text-secondary mb-4">Last Updated: March 9, 2025</p> */}
+          <p className="text-secondary mb-4">Last Updated: March 9, 2025</p>
+          <p className="alert alert-info">
+            These Terms comply with India's Consumer Protection Act 2019, 
+            Information Technology Act 2000, and E-Commerce Rules 2020
+          </p>
           
           <div className="mb-5">
             <h2 className="fw-semibold mb-3">1. Introduction</h2>
             <p>
-              Welcome to KicksMania. These Terms of Service ("Terms") govern your use of the KicksMania website, 
-              mobile applications, and services (collectively, the "Services"). By accessing or using our Services, 
-              you agree to be bound by these Terms. If you do not agree to these Terms, please do not use our Services.
+              Welcome to KicksMania (operating under Indian jurisdiction). These Terms of Service ("Terms") govern your use of the KicksMania website, 
+              mobile applications, and services (collectively, the "Services") in compliance with India's Consumer Protection Act 2019 and 
+              E-Commerce Rules 2020. By accessing or using our Services, you agree to be bound by these Terms. If you do not agree to 
+              these Terms, please do not use our Services.
             </p>
           </div>
           
@@ -37,7 +42,8 @@ const TermsOfService = () => {
             </p>
             <p>
               Prices for products are subject to change without notice. We reserve the right to modify or discontinue any 
-              product or service without notice at any time.
+              product or service without notice at any time. As per E-Commerce Rules 2020, we will not impose any cancellation 
+              charges on users unless we incur actual costs from third-party service providers.
             </p>
           </div>
           
@@ -51,7 +57,8 @@ const TermsOfService = () => {
             <p>
               Payment must be made at the time of placing an order. We accept various payment methods as indicated on our checkout page. 
               By providing a payment method, you represent and warrant that you are authorized to use the designated payment method and 
-              authorize us to charge your payment method for the total amount of your order (including any taxes and shipping charges).
+              authorize us to charge your payment method for the total amount of your order (including any taxes and shipping charges). 
+              Disputes related to payments will be resolved through the RBI's Ombudsman Scheme for Digital Transactions.
             </p>
           </div>
           
@@ -102,8 +109,9 @@ const TermsOfService = () => {
           <div className="mb-5">
             <h2 className="fw-semibold mb-3">10. Governing Law</h2>
             <p>
-              These Terms shall be governed by and construed in accordance with the laws of [Your Jurisdiction], without regard to its 
-              conflict of law provisions.
+              These Terms shall be governed by and construed in accordance with the laws of India. Any disputes arising from these Terms 
+              shall be subject to the exclusive jurisdiction of courts in New Delhi. We comply with Section 79 of the IT Act 2000 
+              and Rule 3(11) of the IT Rules 2021 regarding grievance redressal.
             </p>
           </div>
           
@@ -122,8 +130,11 @@ const TermsOfService = () => {
               If you have any questions about these Terms, please contact us at:
             </p>
             <p>
-              Email: support@kicksmania.com<br />
-              Phone: +1 (555) 123-4567
+              Grievance Officer: Ms. Priya Sharma<br />
+              Email: grievance@kicksmania.in<br />
+              Phone: +91 11 3344 5566<br />
+              Address: F-12, Connaught Place, New Delhi - 110001<br />
+              Response Time: 48 hours as mandated by E-Commerce Rules
             </p>
           </div>
         </div>

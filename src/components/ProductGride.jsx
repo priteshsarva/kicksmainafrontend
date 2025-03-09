@@ -12,7 +12,7 @@ const ProductGride = (products) => {
                 <div 
                 // className="row g-4"
                 className="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
-                    {listproduct.map((product) => (
+                    {listproduct.slice(0, 10).map((product) => (
                         <div key={product.id} 
                         className="col"                                         
                         >
