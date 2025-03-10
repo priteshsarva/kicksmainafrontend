@@ -5,35 +5,51 @@ import { useState } from 'react';
 
 
 const SingleCollection = (products) => {
-  const [filteredProducts, setFilteredProducts] = useState([]);
+  // old code
+  // const [filteredProducts, setFilteredProducts] = useState([]);
 
 
-  const handleFilterChange = (filters) => {
-    let filtered = [...products];
+  // const handleFilterChange = (filters) => {
+  //   let filtered = [...products];
 
-    // Apply brand filter
-    if (filters.brands.length > 0) {
-      filtered = filtered.filter(product => filters.brands.includes(product.brand));
-    }
+  //   // Apply brand filter
+  //   if (filters.brands.length > 0) {
+  //     filtered = filtered.filter(product => filters.brands.includes(product.brand));
+  //   }
 
-    // Apply category filter
-    if (filters.categories.length > 0) {
-      filtered = filtered.filter(product => filters.categories.includes(product.category));
-    }
+  //   // Apply category filter
+  //   if (filters.categories.length > 0) {
+  //     filtered = filtered.filter(product => filters.categories.includes(product.category));
+  //   }
 
-    // Apply price filter
-    filtered = filtered.filter(product => product.price <= filters.priceRange[1]);
+  //   // Apply price filter
+  //   filtered = filtered.filter(product => product.price <= filters.priceRange[1]);
 
-    // Apply search filter
-    if (searchQuery) {
-      filtered = filtered.filter(product =>
-        product.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        product.brand.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        product.category.toLowerCase().includes(searchQuery.toLowerCase())
-      );
-    }
+  //   // Apply search filter
+  //   if (searchQuery) {
+  //     filtered = filtered.filter(product =>
+  //       product.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+  //       product.brand.toLowerCase().includes(searchQuery.toLowerCase()) ||
+  //       product.category.toLowerCase().includes(searchQuery.toLowerCase())
+  //     );
+  //   }
 
-    setFilteredProducts(filtered);
+  //   setFilteredProducts(filtered);
+  // };
+
+
+  // new code
+
+  
+  const [filteredProducts, setFilteredProducts] = useState(products.products.slice(0, 10));
+
+  const handleFilterChange = (newFilters) => {
+    const filtered = products.products.filter(product => {
+      const matchesBrand = newFilters.brands.length === 0 || newFilters.brands.includes(product.brand);
+      const matchesCategory = newFilters.categories.length === 0 || newFilters.categories.includes(product.category);
+      return matchesBrand && matchesCategory;
+    });
+    setFilteredProducts(filtered.slice(0, 10));
   };
 
 
@@ -62,7 +78,7 @@ const SingleCollection = (products) => {
           <div
             className="col"
           >
-            <ProductGride products={filteredProducts.length > 0 ? filteredProducts : products} />
+            <ProductGride products={{ products: filteredProducts }}  />
 
           </div>
         </div>

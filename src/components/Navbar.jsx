@@ -57,7 +57,7 @@ const NavBaar = () => {
         <Container fluid>
           {/* Mobile View */}
           <div className="d-flex justify-content-between w-100 d-md-none align-items-center">
-            <Navbar.Brand href="#" className="m-0">Company Name</Navbar.Brand>
+            <Navbar.Brand href="#" className="m-0">Kicks Mania</Navbar.Brand>
             <div className="d-flex gap-2">
               <Button 
                 variant="link" 
@@ -78,7 +78,7 @@ const NavBaar = () => {
 
           {/* Desktop View */}
           <div className="d-none d-md-flex justify-content-center w-100">
-            <Navbar.Brand href="#">Company Name</Navbar.Brand>
+            <Navbar.Brand href="#">Kicks Mania</Navbar.Brand>
           </div>
         </Container>
       </Navbar>
@@ -150,7 +150,7 @@ const NavBaar = () => {
         placement="end"
       >
         <Offcanvas.Header closeButton>
-          <Offcanvas.Title>Company Name</Offcanvas.Title>
+          <Offcanvas.Title>Kicks Mania</Offcanvas.Title>
         </Offcanvas.Header>
         <Offcanvas.Body>
           <Nav className="flex-column gap-3">

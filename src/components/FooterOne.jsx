@@ -96,8 +96,8 @@ const FooterOne = () => {
                     <div className="row g-4">
                         <div className="col-md-3">
                             <h4 className="fw-bold mb-3">Contact</h4>
-                            <p>support@solehub.com</p>
-                            <p>+1 (555) 123-4567</p>
+                            <p>support@kicksmania.com</p>
+                            <p>+91 97235 15869</p>
                         </div>
                         <div className="col-md-3">
                             <h4 className="fw-bold mb-3">Customer Service</h4>
@@ -118,9 +118,36 @@ const FooterOne = () => {
                         <div className="col-md-3">
                             <h4 className="fw-bold mb-3">Follow Us</h4>
                             <div className="d-flex gap-3">
-                                <Instagram className="cursor-pointer" style={{ width: "24px", height: "24px" }} />
-                                <Facebook className="cursor-pointer" style={{ width: "24px", height: "24px" }} />
-                                <MessageCircle className="cursor-pointer" style={{ width: "24px", height: "24px" }} />
+                                <a href='https://www.instagram.com/kicks_mania.in/#' target='_blank' style={{
+                                    textDecoration: "none",
+                                    color: "inherit",
+                                    background: "none",
+                                    border: "none",
+                                    padding: 0,
+                                    margin: 0,
+                                    font: "inherit",
+                                    outline: "none"
+                                }}><Instagram className="cursor-pointer" style={{ width: "24px", height: "24px" }} /></a>
+                                <a href='https://www.instagram.com/kicks_mania.in/#' target='_blank' style={{
+                                    textDecoration: "none",
+                                    color: "inherit",
+                                    background: "none",
+                                    border: "none",
+                                    padding: 0,
+                                    margin: 0,
+                                    font: "inherit",
+                                    outline: "none"
+                                }}> <Facebook className="cursor-pointer" style={{ width: "24px", height: "24px" }} /></a>
+                                <a href='https://www.instagram.com/kicks_mania.in/#' target='_blank' style={{
+                                    textDecoration: "none",
+                                    color: "inherit",
+                                    background: "none",
+                                    border: "none",
+                                    padding: 0,
+                                    margin: 0,
+                                    font: "inherit",
+                                    outline: "none"
+                                }}> <MessageCircle className="cursor-pointer" style={{ width: "24px", height: "24px" }} /></a>
                             </div>
                         </div>
                         {/* <div className="col-md-3">
@@ -136,8 +163,8 @@ const FooterOne = () => {
                             </p>
                         </div> */}
                     </div>
-                </div>
-            </footer>
+                </div >
+            </footer >
 
         </>
     )
