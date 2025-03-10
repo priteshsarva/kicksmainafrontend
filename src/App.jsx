@@ -127,16 +127,7 @@ const App = () => {
       brand: 'Brooks'
     }
   ];
-  // const [filteredProducts, setFilteredProducts] = useState(products.slice(0, 10));
 
-  // const handleFilterChange = (newFilters) => {
-  //   const filtered = products.filter(product => {
-  //     const matchesBrand = newFilters.brands.length === 0 || newFilters.brands.includes(product.brand);
-  //     const matchesCategory = newFilters.categories.length === 0 || newFilters.categories.includes(product.category);
-  //     return matchesBrand && matchesCategory;
-  //   });
-  //   setFilteredProducts(filtered.slice(0, 10));
-  // };
 
   return (
     <>
@@ -152,9 +143,7 @@ const App = () => {
                 <ShopBrand />
                 <FeaturedCategories />
                 <ShoeCarousel productss={products} />
-                <SingleCollection products={products} />
-                {/* <ProductFilters onFilterChange={handleFilterChange} /> */}
-                {/* <ProductGride products={{ products: filteredProducts }} /> */}
+                <SingleCollection products={products} />               
               </>
             }
           />
