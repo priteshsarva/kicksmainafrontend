@@ -14,22 +14,22 @@ const ProductGride = (products) => {
                 className="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
                     {listproduct.length === 0 ? "No Porducts found" : ""}
                     {listproduct.slice(0, 10).map((product) => (
-                        <div key={product.id} 
-                        className="col"                                         
+                        <div key={product.productId} 
+                        className="col"
                         >
                             <div className="card border-1 shadow-sm p-3 text-center h-100 hover:bg-black group transition-all duration-300 rounded-0 ">
-                                <Link to={`/product/${product.id}`} className="text-decoration-none" style={{color:'black'}}>
+                                <Link to={`/product/${product.productId}`} className="text-decoration-none" style={{color:'black'}}>
                                 {/* <Link to={`/product/`} className="text-decoration-none" style={{color:'black'}}> */}
                                 {/* <a href={`/product/${product.id}`} className="text-decoration-none" style={{color:'black'}}> */}
 
                                     <img
-                                        src={Array.isArray(product.image) ? product.image[0] : product.image}
-                                        alt={product.name}
+                                        src={Array.isArray(product.image) ? product.image[0] : product.featuredimg}
+                                        alt={product.productName}
                                         className="card-img-top"
                                         style={{ height: "250px", objectFit: "cover" }}
                                     />
                                     <div className="card-body">
-                                        <h5 className="card-title fw-bold group-hover:text-white">{product.name}</h5>
+                                        <h5 className="card-title fw-bold group-hover:text-white">{product.productName}</h5>
                                        
                                     </div>
                                     {/* </a> */}

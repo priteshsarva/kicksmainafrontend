@@ -54,17 +54,19 @@ export default function ShoeCarousel({ productss }) {
       <h2 className="text-center mb-4 fw-bold">Bestsellers</h2>
       <Slider {...settings} s>
         {productss.map((product) => (
-          <div key={product.id} className="px-2">
+          <div key={product.productId} className="px-2">
             <div className="card border-1 shadow-sm p-3 text-center m-3 h-100 hover:bg-black group transition-all duration-300 rounded-0">
-            <Link to={`/product/${product.id}`} className="text-decoration-none" style={{ color: 'black' }}>
+            <Link to={`/product/${product.productId}`} className="text-decoration-none" style={{ color: 'black' }}>
               <img
-                src={Array.isArray(product.image) ? product.image[0] : product.image}
-                alt={product.name}
+                src={
+                  Array.isArray(product.image) ? product.image[0] : product.featuredimg
+                }
+                alt={product.productName}
                 className="card-img-top img-fluid"
                 style={{ height: "200px", objectFit: "cover" }}
               />
               <div className="card-body">
-                <h5 className="card-title fw-bold group-hover:text-white">{product.name}</h5>
+                <h5 className="card-title fw-bold group-hover:text-white">{product.productName}</h5>
                 {/* <p className="text-muted">${product.price}</p> */}
                 {/* <button
                   onClick={() => addToCart(product)}

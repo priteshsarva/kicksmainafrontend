@@ -5,11 +5,22 @@ import { Link } from 'react-router-dom';
 
 export default function ProductPage({ products }) {
   const { id } = useParams();
-  const product = products.find(p => p.id === parseInt(id));
+  const product = products.find(p => p.productId === parseInt(id));
   const [selectedSize, setSelectedSize] = useState('');
-  const [selectedImage, setSelectedImage] = useState(Array.isArray(product.image) ? product.image[0] : product.image); // Default to the first image
+  // const images = [product.featuredimg + ...product.imageUrl]
 
-  const sizes = ['6', '7', '8', '9', '10', '11'];
+
+  // Parse the imageUrl JSON string into an array
+  const imageUrlArray = JSON.parse(product.imageUrl);
+
+  // Create the images array by combining featuredimg and imageUrlArray
+  product.image = [product.featuredimg, ...imageUrlArray];
+
+
+
+  const [selectedImage, setSelectedImage] = useState(Array.isArray(product.image) ? product.image[0] : product.featuredimg); // Default to the first image
+
+  const sizes = JSON.parse(product.sizeName);
   const brands = ['Nike', 'Adidas', 'Puma', 'New Balance'];
   const categories = ['sneakers', 'boots', 'sandals'];
 
@@ -24,7 +35,7 @@ export default function ProductPage({ products }) {
         <div className="col-md-6 text-center">
           <img
             src={selectedImage}
-            alt={product.name}
+            alt={product.productName}
             className="img-fluid rounded"
             style={{ height: '500px', objectFit: 'cover', width: '100%' }}
           />
@@ -36,7 +47,7 @@ export default function ProductPage({ products }) {
                 <div key={index} className="col-3">
                   <img
                     src={image}
-                    alt={`${product.name} thumbnail ${index + 1}`}
+                    alt={`${product.productName} thumbnail ${index + 1}`}
                     className="img-fluid rounded cursor-pointer"
                     style={{
                       height: '100px',
@@ -55,7 +66,7 @@ export default function ProductPage({ products }) {
 
         {/* Product Details */}
         <div className="col-md-6">
-          <h1 className="display-4 mb-4">{product.name}</h1>
+          <h1 className="display-4 mb-4">{product.productName}</h1>
           {/* <p className="h2 mb-5">${product.price}</p> */}
 
           {/* Size Selection */}

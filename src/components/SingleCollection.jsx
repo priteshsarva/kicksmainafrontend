@@ -45,8 +45,8 @@ const SingleCollection = (products) => {
 
   const handleFilterChange = (newFilters) => {
     const filtered = products.products.filter(product => {
-      const matchesBrand = newFilters.brands.length === 0 || newFilters.brands.includes(product.brand);
-      const matchesCategory = newFilters.categories.length === 0 || newFilters.categories.includes(product.category);
+      const matchesBrand = newFilters.brands.length === 0 || newFilters.brands.includes(product.productBrand);
+      const matchesCategory = newFilters.categories.length === 0 || newFilters.categories.includes(product.catName);
       return matchesBrand && matchesCategory;
     });
     setFilteredProducts(filtered.slice(0, 10));
