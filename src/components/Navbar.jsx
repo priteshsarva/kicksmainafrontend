@@ -1,47 +1,55 @@
 import React, { useState } from 'react';
 import { Navbar, Nav, Container, Offcanvas, Button, Form } from 'react-bootstrap';
 import { FaSearch, FaTimes, FaBars } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
-const NavBaar = () => {
+const NavBaar = (products) => {
   const [showSearch, setShowSearch] = useState(false);
   const [showMenu, setShowMenu] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
   const [searchResults, setSearchResults] = useState([]);
 
-  // Sample data for demonstration
-  const sampleResults = [
-    'Search Result 1',
-    'Search Result 2',
-    'Search Result 3',
-    'Another Result',
-    'Demo Result'
-  ];
+  const searchproducts = products.productss
+
+  const removeDuplicates = (products) => {
+    const uniqueMap = new Map();
+    products.forEach((product) => {
+      if (!uniqueMap.has(product.productId)) {
+        uniqueMap.set(product.productId, product);
+      }
+    });
+    return Array.from(uniqueMap.values());
+  };
 
   const handleSearch = (e) => {
     const term = e.target.value.toLowerCase();
     setSearchTerm(term);
-    const filtered = sampleResults.filter(item => 
-      item.toLowerCase().includes(term)
-    );
-    setSearchResults(filtered);
+    let productneeded = []
+    searchproducts.filter((item) => {
+
+      console.log(item.productName.toLowerCase().includes(term));
+      if (item.productName.toLowerCase().includes(term)) {
+        productneeded.push(item)
+      }
+      if (item.productBrand.toLowerCase().includes(term)) {
+        productneeded.push(item)
+      }
+      if (item.catName.toLowerCase().includes(term)) {
+        productneeded.push(item)
+      }
+
+
+      const uniqueProducts = removeDuplicates(productneeded);
+      setSearchResults(uniqueProducts);
+      return productneeded
+
+    });
+    // console.log(filtered);
+
+
+    // setSearchResults(filtered); 
+
   };
-
-  // other otipon
-  // const handleSearch = (query) => {
-  //   setSearchQuery(query);
-  //   let filtered = [...products];
-
-  //   if (query) {
-  //     filtered = filtered.filter(product =>
-  //       product.name.toLowerCase().includes(query.toLowerCase()) ||
-  //       product.brand.toLowerCase().includes(query.toLowerCase()) ||
-  //       product.category.toLowerCase().includes(query.toLowerCase())
-  //     );
-  //   }
-
-  //   setFilteredProducts(filtered);
-  // };
-
 
 
   const handleCloseSearch = () => {
@@ -57,17 +65,17 @@ const NavBaar = () => {
         <Container fluid>
           {/* Mobile View */}
           <div className="d-flex justify-content-between w-100 d-md-none align-items-center">
-            <Navbar.Brand href="#" className="m-0">Kicks Mania</Navbar.Brand>
+            <Navbar.Brand href="/" className="m-0">Kicks Mania</Navbar.Brand>
             <div className="d-flex gap-2">
-              <Button 
-                variant="link" 
+              <Button
+                variant="link"
                 onClick={() => setShowSearch(true)}
                 className="text-dark p-1"
               >
                 <FaSearch size={20} />
               </Button>
-              <Button 
-                variant="link" 
+              <Button
+                variant="link"
                 onClick={() => setShowMenu(true)}
                 className="text-dark p-1"
               >
@@ -87,13 +95,30 @@ const NavBaar = () => {
       <Navbar expand="md" className="border-bottom py-1 d-none d-md-block bg-white">
         <Container fluid className="justify-content-center">
           <Nav className="gap-4">
-            <Nav.Link href="#" className="text-dark">Home</Nav.Link>
+            <Nav.Link href="#" className="text-dark">Nike</Nav.Link>
+            <Nav.Link href="#" className="text-dark">Jordan</Nav.Link>
+            <Nav.Link href="#" className="text-dark">Yeezy</Nav.Link>
+            <Nav.Link href="#" className="text-dark">Airforce</Nav.Link>
+            <Nav.Link href="#" className="text-dark">Dunks</Nav.Link>
+            <Nav.Link href="#" className="text-dark">Adidas</Nav.Link>
+            <Nav.Link href="#" className="text-dark">New balance</Nav.Link>
+            <Nav.Link href="#" className="text-dark">Louis Vuitton</Nav.Link>
+            <Nav.Link href="#" className="text-dark"> Corcs slide</Nav.Link>
+            <Nav.Link href="#" className="text-dark"> Puma</Nav.Link>
+            <Nav.Link href="#" className="text-dark"> Onitsuka</Nav.Link>
+            <Nav.Link href="#" className="text-dark"> Asics</Nav.Link>
+            <Nav.Link href="#" className="text-dark"> Vans</Nav.Link>
+            <Nav.Link href="#" className="text-dark"> Converse</Nav.Link>
+            <Nav.Link href="#" className="text-dark"> UA QUALITY </Nav.Link>
+
+
+            {/* <Nav.Link href="#" className="text-dark">Home</Nav.Link>
             <Nav.Link href="#" className="text-dark">About</Nav.Link>
             <Nav.Link href="#" className="text-dark">Services</Nav.Link>
-            <Nav.Link href="#" className="text-dark">Contact</Nav.Link>
+            <Nav.Link href="#" className="text-dark">Contact</Nav.Link> */}
           </Nav>
-          <Button 
-            variant="link" 
+          <Button
+            variant="link"
             className="ms-4 text-dark p-1"
             onClick={() => setShowSearch(true)}
           >
@@ -103,11 +128,11 @@ const NavBaar = () => {
       </Navbar>
 
       {/* Search Offcanvas */}
-      <Offcanvas 
-        show={showSearch} 
-        onHide={handleCloseSearch} 
+      <Offcanvas
+        show={showSearch}
+        onHide={handleCloseSearch}
         placement="top"
-        className="h-25"
+        className="h-75"
       >
         <Offcanvas.Header className="border-bottom">
           <div className="w-100 me-3">
@@ -120,33 +145,62 @@ const NavBaar = () => {
                   onChange={handleSearch}
                   autoFocus
                 />
-                <Button variant="outline-secondary">
+                <Button variant="outline-secondary" onClick={console.log({ products })
+                }>
                   <FaSearch />
                 </Button>
               </div>
             </Form.Group>
           </div>
-          <Button 
-            variant="link" 
-            onClick={handleCloseSearch} 
+          <Button
+            variant="link"
+            onClick={handleCloseSearch}
             className="text-dark"
           >
             <FaTimes size={20} />
           </Button>
         </Offcanvas.Header>
         <Offcanvas.Body className="overflow-auto">
-          {searchResults.map((result, index) => (
-            <div key={index} className="p-2 border-bottom">
-              {result}
-            </div>
-          ))}
-        </Offcanvas.Body>
-      </Offcanvas>
+          {searchResults
+            // .slice(0, 3)
+            .map((result, index) => (
+
+              <div key={index} className="p-2 border-bottom">
+                <Link to={`/product/${result.productId}`} className="row gap-1 " onClick={handleCloseSearch} style={{ color: 'black', textDecoration: 'none' }}>
+                  <img src={result.featuredimg} alt="" className='col-12 col-sm-5' style={{ height: '250px', objectFit: 'cover', aspectRatio: '1/1' }} />
+
+                  <div className='col'>
+                    <h5 >{result.productName}</h5>
+
+                    <div className="row ">
+                      {
+
+                        JSON.parse(result.sizeName).map(size => (
+
+                          <div key={size} className="col-3 mb-2">
+                            <button
+                              // onClick={() => setSelectedSize(size)}
+                              className={`btn w-100 btn-outline-dark`}
+                            >
+                              {size}
+                            </button>
+                          </div>
+
+                        ))
+                      }
+                    </div>
+                  </div>
+                </Link>
+              </div>
+            ))}
+          {/* show more */}
+        </Offcanvas.Body >
+      </Offcanvas >
 
       {/* Mobile Menu Offcanvas */}
-      <Offcanvas 
-        show={showMenu} 
-        onHide={() => setShowMenu(false)} 
+      < Offcanvas
+        show={showMenu}
+        onHide={() => setShowMenu(false)}
         placement="end"
       >
         <Offcanvas.Header closeButton>
@@ -154,13 +208,29 @@ const NavBaar = () => {
         </Offcanvas.Header>
         <Offcanvas.Body>
           <Nav className="flex-column gap-3">
-            <Nav.Link href="#" className="text-dark">Home</Nav.Link>
+            <Nav.Link href="#" className="text-dark">Nike</Nav.Link>
+            <Nav.Link href="#" className="text-dark">Jordan</Nav.Link>
+            <Nav.Link href="#" className="text-dark">Yeezy</Nav.Link>
+            <Nav.Link href="#" className="text-dark">Airforce</Nav.Link>
+            <Nav.Link href="#" className="text-dark">Dunks</Nav.Link>
+            <Nav.Link href="#" className="text-dark">Adidas</Nav.Link>
+            <Nav.Link href="#" className="text-dark">New balance</Nav.Link>
+            <Nav.Link href="#" className="text-dark">Louis Vuitton</Nav.Link>
+            <Nav.Link href="#" className="text-dark"> Corcs slide</Nav.Link>
+            <Nav.Link href="#" className="text-dark"> Puma</Nav.Link>
+            <Nav.Link href="#" className="text-dark"> Onitsuka</Nav.Link>
+            <Nav.Link href="#" className="text-dark"> Asics</Nav.Link>
+            <Nav.Link href="#" className="text-dark"> Vans</Nav.Link>
+            <Nav.Link href="#" className="text-dark"> Converse</Nav.Link>
+            <Nav.Link href="#" className="text-dark"> UA QUALITY </Nav.Link>
+
+            {/* <Nav.Link href="#" className="text-dark">Home</Nav.Link>
             <Nav.Link href="#" className="text-dark">About</Nav.Link>
             <Nav.Link href="#" className="text-dark">Services</Nav.Link>
-            <Nav.Link href="#" className="text-dark">Contact</Nav.Link>
+            <Nav.Link href="#" className="text-dark">Contact</Nav.Link> */}
           </Nav>
         </Offcanvas.Body>
-      </Offcanvas>
+      </Offcanvas >
     </>
   );
 };

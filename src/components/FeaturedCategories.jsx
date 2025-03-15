@@ -4,7 +4,9 @@ const FeaturedCategories = () => {
     const categories = [
         { name: "Men's", image: "https://images.unsplash.com/photo-1600185365483-26d7a4cc7519" },
         { name: "Women's", image: "https://images.unsplash.com/photo-1608256246200-53e635b5b65f" },
-        // { name: "Sandals", image: "https://images.unsplash.com/photo-1603487742131-4160ec999306" },
+        { name: "Flip-Flop", image: "https://images.unsplash.com/photo-1603487742131-4160ec999306" },
+        { name: "UA Quality", image: "https://images.unsplash.com/photo-1603487742131-4160ec999306" },
+
     ];
     return (
         <>

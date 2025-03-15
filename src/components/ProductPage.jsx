@@ -82,7 +82,7 @@ export default function ProductPage({ products }) {
                       : 'btn-outline-dark'
                       }`}
                   >
-                    US {size}
+                     {size}
                   </button>
                 </div>
               ))}
