@@ -649,7 +649,11 @@ const App = () => {
               element={<ProductPageWithPrive products={products} />}
             />
              <Route
-              path="/product"
+              path="/product/"
+              element={<AllProducts products={products} />}
+            />
+              <Route
+              path="/search/:searchterm"
               element={<AllProducts products={products} />}
             />
             <Route path="/terms" element={<TermsOfService />} />

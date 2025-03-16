@@ -162,17 +162,17 @@ const NavBaar = (products) => {
         </Offcanvas.Header>
         <Offcanvas.Body className="overflow-auto">
           {searchResults
-            // .slice(0, 3)
+            .slice(0, 3)
             .map((result, index) => (
 
               <div key={index} className="p-2 border-bottom">
-                <Link to={`/product/${result.productId}`} className="row gap-1 " onClick={handleCloseSearch} style={{ color: 'black', textDecoration: 'none' }}>
+                <Link to={`/product/${result.productId}`} className="container m-auto row gap-1" onClick={handleCloseSearch} style={{ color: 'black', textDecoration: 'none' }}>
                   <img src={result.featuredimg} alt="" className='col-12 col-sm-5' style={{ height: '250px', objectFit: 'cover', aspectRatio: '1/1' }} />
 
                   <div className='col'>
-                    <h5 >{result.productName}</h5>
+                    <h2 >{result.productName}</h2>
 
-                    <div className="row ">
+                    <div className="row">
                       {
 
                         JSON.parse(result.sizeName).map(size => (
@@ -193,6 +193,9 @@ const NavBaar = (products) => {
                 </Link>
               </div>
             ))}
+          {searchResults.length !== 0 ? <>
+            <Link to={`/search/${searchTerm}`} className='w-100 d-flex justify-content-center text-dark text-decoration-none' onClick={handleCloseSearch}><h5>View More</h5></Link>
+          </> : <h5>No Result Found</h5>}
           {/* show more */}
         </Offcanvas.Body >
       </Offcanvas >
