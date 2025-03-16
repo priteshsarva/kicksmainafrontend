@@ -192,3 +192,10 @@ body {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity, 1));
 }
+
+.group:hover .group-hover\:btn-outline-white {
+
+  color: rgb(255 255 255 / var(--tw-bg-opacity, 1));
+  background-color: rgb(255 255 255 / 0);
+  border-color: rgb(255 255 255 / var(--tw-bg-opacity, 1));
+}

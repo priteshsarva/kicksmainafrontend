@@ -2,6 +2,7 @@ import React from 'react'
 import ProductGride from './ProductGride'
 import ProductFilters from './ProductFilters'
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 
 const SingleCollection = (products) => {
@@ -40,16 +41,31 @@ const SingleCollection = (products) => {
 
   // new code
 
-  
-  const [filteredProducts, setFilteredProducts] = useState(products.products.slice(0, 10));
+
+  const [filteredProducts, setFilteredProducts] = useState(products.products.slice(0, 9));
 
   const handleFilterChange = (newFilters) => {
+
     const filtered = products.products.filter(product => {
-      const matchesBrand = newFilters.brands.length === 0 || newFilters.brands.includes(product.productBrand);
-      const matchesCategory = newFilters.categories.length === 0 || newFilters.categories.includes(product.catName);
-      return matchesBrand && matchesCategory;
-    });
-    setFilteredProducts(filtered.slice(0, 10));
+      const matchesBrand = newFilters.brands.length === 0 || 
+          newFilters.brands.some(brand => 
+              product.productName.toLowerCase().includes(brand.toLowerCase())
+          );
+  
+      // const matchesCategory = newFilters.categories.length === 0 || 
+      //     newFilters.categories.includes(product.catName);
+  
+      return matchesBrand 
+      // && matchesCategory;
+  });
+    
+    // const filtered = products.products.filter(product => {
+    //   const matchesBrand = newFilters.brands.length === 0 || newFilters.brands.includes(product.productBrand);
+    //   const matchesCategory = newFilters.categories.length === 0 || newFilters.categories.includes(product.catName);
+    //   return matchesBrand && matchesCategory;
+    // });
+    
+    setFilteredProducts(filtered.slice(0, 9));
   };
 
 
@@ -78,8 +94,9 @@ const SingleCollection = (products) => {
           <div
             className="col"
           >
-            <ProductGride products={{ products: filteredProducts }}  />
+            <ProductGride products={{ products: filteredProducts }} />
 
+            <Link to='/product' >view more</Link>
           </div>
         </div>
       </div>

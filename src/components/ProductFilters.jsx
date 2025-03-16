@@ -10,18 +10,37 @@ export default function ProductFilters({ onFilterChange }) {
 
     const [isMobileFiltersOpen, setIsMobileFiltersOpen] = useState(false); // State for mobile dropdown
 
-    const brands = ["Nike", "Adidas", "Puma", "New Balance"];
+    const brands = [
+        "Nike",
+        "Jordan",
+        "Yeezy",
+        "Airforce",
+        "Dunks",
+        "Adidas",
+        "New Balance",
+        "Louis Vuitton",
+        "Crocs Slide",
+        "Puma",
+        "Onitsuka",
+        "Asics",
+        "Vans",
+        "Converse",
+        "UA Quality"
+    ];
     const categories = ["sneakers", "boots", "sandals"];
     const sizes = ["6", "7", "8", "9", "10", "11"];
 
     const handleCheckboxChange = (type, value) => {
         const newFilters = {
             ...filters,
-            [type]: filters[type].includes(value)
-                ? filters[type].filter((item) => item !== value)
-                : [...filters[type], value],
+            [type]: filters[type].includes(value.slice(0, 3))
+                ? filters[type].filter((item) => item !== value.slice(0, 3))
+                : [...filters[type], value.slice(0, 3)],
+                
         };
+        // console.log( filters[type].includes(value))
         setFilters(newFilters);
+
         onFilterChange(newFilters);
     };
 
@@ -51,7 +70,7 @@ export default function ProductFilters({ onFilterChange }) {
 
             {/* Filters Container */}
             <div
-                className={`border-end p-4 ${isMobileFiltersOpen ? "d-block" : "d-none d-sm-block"}`}
+                className={`border-end p-4 ${isMobileFiltersOpen ? "d-block" : "d-none d-sm-block"} sticky-sm-top`}
             >
                 {/* Brand Filter */}
                 <div className="mb-4">
@@ -61,10 +80,12 @@ export default function ProductFilters({ onFilterChange }) {
                             <input
                                 className="form-check-input"
                                 type="checkbox"
-                                checked={filters.brands.includes(brand)}
+                                checked={filters.brands.includes(brand.slice(0, 3))}
                                 onChange={() => handleCheckboxChange("brands", brand)}
-                                id={`brand-${brand}`}
+                                id={`brand-${brand}`}                            
                             />
+                          
+                                
                             <label className="form-check-label" htmlFor={`brand-${brand}`}>
                                 {brand}
                             </label>
@@ -73,7 +94,7 @@ export default function ProductFilters({ onFilterChange }) {
                 </div>
 
                 {/* Category Filter */}
-                <div className="mb-4">
+                {/* <div className="mb-4">
                     <h5 className="fw-bold mb-2">Categories</h5>
                     {categories.map((category) => (
                         <div key={category} className="form-check">
@@ -89,7 +110,7 @@ export default function ProductFilters({ onFilterChange }) {
                             </label>
                         </div>
                     ))}
-                </div>
+                </div> */}
 
                 {/* Size Filter */}
                 <div className="mb-4">

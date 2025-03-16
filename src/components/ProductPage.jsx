@@ -79,8 +79,8 @@ export default function ProductPage({ products }) {
                     onClick={() => setSelectedSize(size)}
                     className={`btn w-100 ${selectedSize === size
                       ? 'btn-dark'
-                      : 'btn-outline-dark'
-                      }`}
+                      : 'btn-outline-dark' 
+                      } `}
                   >
                      {size}
                   </button>
