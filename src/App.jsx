@@ -70,7 +70,7 @@ const App = () => {
           "productDescription": null,
           "productBrand": "NIK E",
           "sizeName": "[\"42\",\"43\",\"44\",\"45\"]",
-          "catName": "MENS+SHOES"
+          "catName": "EID SALE"
         },
         {
           "productId": 3,
@@ -88,7 +88,7 @@ const App = () => {
           "productDescription": null,
           "productBrand": "UNDER ARMOUR",
           "sizeName": "[\"41\",\"43\",\"44\",\"45\"]",
-          "catName": "MENS+SHOES"
+          "catName": "Flipflops/Crocs"
         },
         {
           "productId": 4,
@@ -106,7 +106,7 @@ const App = () => {
           "productDescription": null,
           "productBrand": "NIK E",
           "sizeName": "[\"41\",\"42\",\"43\",\"44\",\"45\"]",
-          "catName": "MENS+SHOES"
+          "catName": "Slides/Crocs"
         },
         {
           "productId": 5,
@@ -124,7 +124,7 @@ const App = () => {
           "productDescription": null,
           "productBrand": "NIK E",
           "sizeName": "[\"41\",\"43\",\"44\",\"45\"]",
-          "catName": "MENS+SHOES"
+          "catName": "Women's Shoe"
         },
         {
           "productId": 6,
@@ -142,7 +142,7 @@ const App = () => {
           "productDescription": null,
           "productBrand": ".NIKE AIR",
           "sizeName": "[\"41\",\"42\",\"43\",\"44\"]",
-          "catName": "MENS+SHOES"
+          "catName": "shoes+for+women"
         },
         {
           "productId": 7,
@@ -625,8 +625,6 @@ const App = () => {
         <Router>
           <ScrollToTop />
           <NavBaar productss={products} />
-
-
           <Routes>
             <Route
               path="/"

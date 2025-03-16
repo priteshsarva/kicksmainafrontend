@@ -7,7 +7,9 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 const AllProducts = (products) => {
-    const { searchterm } = useParams();
+    const { searchterm, searchcategory } = useParams();
+
+console.log(searchterm, searchcategory);
 
     const [filteredProducts, setFilteredProducts] = useState(products.products);
 
@@ -66,7 +68,6 @@ const AllProducts = (products) => {
     useEffect(() => {
         if (searchterm) {
             const filtered = products.products.filter(product => {
-                console.log('from filter');
 
                 const matchesBrand = product.productName.toLowerCase().includes(searchterm.toLowerCase());
 
@@ -77,6 +78,20 @@ const AllProducts = (products) => {
             // If no search term, reset to all products
             setFilteredProducts(products.products);
         }
+
+        if (searchcategory) {
+            const filtered = products.products.filter(product => {
+
+                const matchesBrand = product.catName.toLowerCase().includes(searchcategory.toLowerCase());
+
+                return matchesBrand;
+            });
+            setFilteredProducts(filtered);
+        } else {
+            // If no search term, reset to all products
+            setFilteredProducts(products.products);
+        }
+
     }, [searchterm])
 
 

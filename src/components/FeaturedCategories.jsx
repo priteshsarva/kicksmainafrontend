@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 
 const FeaturedCategories = () => {
     const categories = [
@@ -15,24 +16,25 @@ const FeaturedCategories = () => {
                     {categories.map((category) => (
                         <div key={category.name} className="col-md-6">
                             <div className="position-relative group overflow-hidden rounded shadow-sm cursor-pointer">
+
                                 <img
                                     src={category.image}
                                     alt={category.name}
                                     className="img-fluid w-100"
                                     style={{ height: "250px", objectFit: "cover" }}
                                 />
-                                <div className="position-absolute top-0 start-0 w-100 h-100 bg-dark bg-opacity-50 d-flex align-items-center justify-content-center
-                                
-                                bg-black bg-opacity-40 group-hover:bg-opacity-60 transition-all duration-300 flex items-center justify-center
-                                
+                                <Link to={`/category/${category.name.toLowerCase().slice(0, 3)}`}>
+                                    <div className="position-absolute top-0 start-0 w-100 h-100 bg-dark bg-opacity-50 d-flex align-items-center justify-content-center bg-black bg-opacity-40 group-hover:bg-opacity-60 transition-all duration-300 flex items-center justify-center                  
                                 ">
-                                    <h3 className="text-white fw-bold">{category.name}</h3>
-                                </div>
+
+                                        <h3 className="text-white fw-bold">{category.name}</h3>
+                                    </div>
+                                </Link>
                             </div>
                         </div>
                     ))}
                 </div>
-            </div>
+            </div >
 
         </>
     )
