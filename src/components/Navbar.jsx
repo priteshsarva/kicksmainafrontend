@@ -65,7 +65,9 @@ const NavBaar = (products) => {
         <Container fluid>
           {/* Mobile View */}
           <div className="d-flex justify-content-between w-100 d-md-none align-items-center">
-            <Navbar.Brand href="/" className="m-0"><h1>Kicks Mania</h1></Navbar.Brand>
+            <Nav.Link className="m-0">
+              <Link to='/' className="text-dark text-decoration-none"><h1>Kicks Mania</h1></Link>
+            </Nav.Link>
             <div className="d-flex gap-2">
               <Button
                 variant="link"
@@ -86,7 +88,7 @@ const NavBaar = (products) => {
 
           {/* Desktop View */}
           <div className="d-none d-md-flex justify-content-center w-100">
-            <Navbar.Brand href="#"><h1>Kicks Mania</h1></Navbar.Brand>
+            <Nav.Link><Link to='/' className="text-dark text-decoration-none"><h1>Kicks Mania</h1></Link></Nav.Link>
           </div>
         </Container>
       </Navbar>
@@ -95,27 +97,27 @@ const NavBaar = (products) => {
       <Navbar expand="md" className="border-bottom py-1 d-none d-md-block bg-white">
         <Container fluid className="justify-content-center">
           <Nav className="gap-4">
-            <Nav.Link href="#" className="text-dark">Nike</Nav.Link>
-            <Nav.Link href="#" className="text-dark">Jordan</Nav.Link>
-            <Nav.Link href="#" className="text-dark">Yeezy</Nav.Link>
-            <Nav.Link href="#" className="text-dark">Airforce</Nav.Link>
-            <Nav.Link href="#" className="text-dark">Dunks</Nav.Link>
-            <Nav.Link href="#" className="text-dark">Adidas</Nav.Link>
-            <Nav.Link href="#" className="text-dark">New balance</Nav.Link>
-            <Nav.Link href="#" className="text-dark">Louis Vuitton</Nav.Link>
-            <Nav.Link href="#" className="text-dark"> Corcs slide</Nav.Link>
-            <Nav.Link href="#" className="text-dark"> Puma</Nav.Link>
-            <Nav.Link href="#" className="text-dark"> Onitsuka</Nav.Link>
-            <Nav.Link href="#" className="text-dark"> Asics</Nav.Link>
-            <Nav.Link href="#" className="text-dark"> Vans</Nav.Link>
-            <Nav.Link href="#" className="text-dark"> Converse</Nav.Link>
-            <Nav.Link href="#" className="text-dark"> UA QUALITY </Nav.Link>
+            <Nav.Link ><Link to={`/search/nik`} className="text-dark text-decoration-none"> Nike</Link></Nav.Link>
+            <Nav.Link ><Link to={`/search/Jor`} className="text-dark text-decoration-none"> Jordan</Link></Nav.Link>
+            <Nav.Link ><Link to={`/search/Yee`} className="text-dark text-decoration-none"> Yeezy</Link></Nav.Link>
+            <Nav.Link ><Link to={`/search/Air`} className="text-dark text-decoration-none"> Airforce</Link></Nav.Link>
+            <Nav.Link ><Link to={`/search/dun`} className="text-dark text-decoration-none"> Dunks</Link></Nav.Link>
+            <Nav.Link ><Link to={`/search/adi`} className="text-dark text-decoration-none"> Adidas</Link></Nav.Link>
+            <Nav.Link ><Link to={`/search/bal`} className="text-dark text-decoration-none"> New balance</Link> </Nav.Link>
+            <Nav.Link ><Link to={`/search/lou`} className="text-dark text-decoration-none"> Louis Vuitton</Link> </Nav.Link>
+            <Nav.Link ><Link to={`/search/cor`} className="text-dark text-decoration-none"> Corcs slide </Link></Nav.Link>
+            <Nav.Link ><Link to={`/search/pum`} className="text-dark text-decoration-none"> Puma</Link></Nav.Link>
+            <Nav.Link ><Link to={`/search/oni`} className="text-dark text-decoration-none"> Onitsuka</Link></Nav.Link>
+            <Nav.Link ><Link to={`/search/asi`} className="text-dark text-decoration-none"> Asics</Link></Nav.Link>
+            <Nav.Link ><Link to={`/search/van`} className="text-dark text-decoration-none"> Vans</Link></Nav.Link>
+            <Nav.Link ><Link to={`/search/con`} className="text-dark text-decoration-none"> Converse</Link></Nav.Link>
+            <Nav.Link ><Link to={`/search/qua`} className="text-dark text-decoration-none"> UA QUALITY </Link></Nav.Link>
 
 
-            {/* <Nav.Link href="#" className="text-dark">Home</Nav.Link>
-            <Nav.Link href="#" className="text-dark">About</Nav.Link>
-            <Nav.Link href="#" className="text-dark">Services</Nav.Link>
-            <Nav.Link href="#" className="text-dark">Contact</Nav.Link> */}
+            {/* <Nav.Link className="text-dark"><Link to={`/search/${searchTerm}`}> Home</Link></Nav.Link>
+            <Nav.Link className="text-dark"><Link to={`/search/${searchTerm}`}> About</Link></Nav.Link>
+            <Nav.Link className="text-dark"><Link to={`/search/${searchTerm}`}> Services</Link></Nav.Link>
+            <Nav.Link className="text-dark"><Link to={`/search/${searchTerm}`}> Contact</Link></Nav.Link> */}
           </Nav>
           <Button
             variant="link"
@@ -211,26 +213,21 @@ const NavBaar = (products) => {
         </Offcanvas.Header>
         <Offcanvas.Body>
           <Nav className="flex-column gap-3">
-            <Nav.Link href="#" className="text-dark">Nike</Nav.Link>
-            <Nav.Link href="#" className="text-dark">Jordan</Nav.Link>
-            <Nav.Link href="#" className="text-dark">Yeezy</Nav.Link>
-            <Nav.Link href="#" className="text-dark">Airforce</Nav.Link>
-            <Nav.Link href="#" className="text-dark">Dunks</Nav.Link>
-            <Nav.Link href="#" className="text-dark">Adidas</Nav.Link>
-            <Nav.Link href="#" className="text-dark">New balance</Nav.Link>
-            <Nav.Link href="#" className="text-dark">Louis Vuitton</Nav.Link>
-            <Nav.Link href="#" className="text-dark"> Corcs slide</Nav.Link>
-            <Nav.Link href="#" className="text-dark"> Puma</Nav.Link>
-            <Nav.Link href="#" className="text-dark"> Onitsuka</Nav.Link>
-            <Nav.Link href="#" className="text-dark"> Asics</Nav.Link>
-            <Nav.Link href="#" className="text-dark"> Vans</Nav.Link>
-            <Nav.Link href="#" className="text-dark"> Converse</Nav.Link>
-            <Nav.Link href="#" className="text-dark"> UA QUALITY </Nav.Link>
-
-            {/* <Nav.Link href="#" className="text-dark">Home</Nav.Link>
-            <Nav.Link href="#" className="text-dark">About</Nav.Link>
-            <Nav.Link href="#" className="text-dark">Services</Nav.Link>
-            <Nav.Link href="#" className="text-dark">Contact</Nav.Link> */}
+            <Nav.Link ><Link to={`/search/nik`} className="text-dark text-decoration-none" onClick={() => { setShowMenu(false) }}> Nike</Link></Nav.Link>
+            <Nav.Link ><Link to={`/search/Jor`} className="text-dark text-decoration-none" onClick={() => { setShowMenu(false) }}> Jordan</Link></Nav.Link>
+            <Nav.Link ><Link to={`/search/Yee`} className="text-dark text-decoration-none" onClick={() => { setShowMenu(false) }}> Yeezy</Link></Nav.Link>
+            <Nav.Link ><Link to={`/search/Air`} className="text-dark text-decoration-none" onClick={() => { setShowMenu(false) }}> Airforce</Link></Nav.Link>
+            <Nav.Link ><Link to={`/search/dun`} className="text-dark text-decoration-none" onClick={() => { setShowMenu(false) }}> Dunks</Link></Nav.Link>
+            <Nav.Link ><Link to={`/search/adi`} className="text-dark text-decoration-none" onClick={() => { setShowMenu(false) }}> Adidas</Link></Nav.Link>
+            <Nav.Link ><Link to={`/search/bal`} className="text-dark text-decoration-none" onClick={() => { setShowMenu(false) }}> New balance</Link> </Nav.Link>
+            <Nav.Link ><Link to={`/search/lou`} className="text-dark text-decoration-none" onClick={() => { setShowMenu(false) }}> Louis Vuitton</Link> </Nav.Link>
+            <Nav.Link ><Link to={`/search/cor`} className="text-dark text-decoration-none" onClick={() => { setShowMenu(false) }}> Corcs slide </Link></Nav.Link>
+            <Nav.Link ><Link to={`/search/pum`} className="text-dark text-decoration-none" onClick={() => { setShowMenu(false) }}> Puma</Link></Nav.Link>
+            <Nav.Link ><Link to={`/search/oni`} className="text-dark text-decoration-none" onClick={() => { setShowMenu(false) }}> Onitsuka</Link></Nav.Link>
+            <Nav.Link ><Link to={`/search/asi`} className="text-dark text-decoration-none" onClick={() => { setShowMenu(false) }}> Asics</Link></Nav.Link>
+            <Nav.Link ><Link to={`/search/van`} className="text-dark text-decoration-none" onClick={() => { setShowMenu(false) }}> Vans</Link></Nav.Link>
+            <Nav.Link ><Link to={`/search/con`} className="text-dark text-decoration-none" onClick={() => { setShowMenu(false) }}> Converse</Link></Nav.Link>
+            <Nav.Link ><Link to={`/search/qua`} className="text-dark text-decoration-none" onClick={() => { setShowMenu(false) }}> UA QUALITY </Link></Nav.Link>
           </Nav>
         </Offcanvas.Body>
       </Offcanvas >

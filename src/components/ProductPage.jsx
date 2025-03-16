@@ -79,10 +79,10 @@ export default function ProductPage({ products }) {
                     onClick={() => setSelectedSize(size)}
                     className={`btn w-100 ${selectedSize === size
                       ? 'btn-dark'
-                      : 'btn-outline-dark' 
+                      : 'btn-outline-dark'
                       } `}
                   >
-                     {size}
+                    {size}
                   </button>
                 </div>
               ))}
@@ -101,7 +101,7 @@ export default function ProductPage({ products }) {
         </div>
 
         {/* Product Details Accordion */}
-        <div className="border-top border-bottom pt-4">
+        {/* <div className="border-top border-bottom pt-4">
           <h3 className="h5 mb-3">Product Details</h3>
           <p className="text-muted">
             Premium quality footwear designed for comfort and style.
@@ -120,7 +120,7 @@ export default function ProductPage({ products }) {
             Premium quality footwear designed for comfort and style.
             Made with high-quality materials and expert craftsmanship.
           </p>
-        </div>
+        </div> */}
 
 
       </div>
@@ -130,29 +130,45 @@ export default function ProductPage({ products }) {
         <h2 className="h2 mb-4">Similar Products</h2>
         <div className="row row-cols-1 row-cols-md-4 g-4">
           {products
-            .filter(p => p.id !== product.id && p.category === product.category)
+            .filter(p =>
+              p.productId !== product.productId &&
+              // p.productName.slice(0,3) === product.productName.slice(1,3) ||
+              p.productName.toLowerCase().includes(product.productName.slice(0, 3).toLowerCase())
+            )
+            .sort(() => Math.random() - 0.5) // Shuffle the filtered products
             .slice(0, 4)
             .map(similarProduct => (
               <>
 
-                <div key={similarProduct.id} className="col px-2">
-                  <Link to={`/product/${similarProduct.id}`} className="text-decoration-none" style={{ color: 'black' }}>
+                <div key={similarProduct.productId} className="col px-2">
+                  <Link to={`/product/${similarProduct.productId}`} className="text-decoration-none" style={{ color: 'black' }}>
                     <div className="card border-1 shadow-sm p-3 text-center m-3 h-100 hover:bg-black group transition-all duration-300 rounded-0">
                       <img
-                        src={Array.isArray(similarProduct.image) ? similarProduct.image[0] : similarProduct.image}
-                        alt={similarProduct.name}
+                        src={similarProduct.featuredimg}
+                        alt={similarProduct.productName}
                         className="card-img-top img-fluid"
                         style={{ height: "200px", objectFit: "cover" }}
                       />
                       <div className="card-body">
-                        <h5 className="card-title fw-bold group-hover:text-white">{similarProduct.name}</h5>
-                        {/* <p className="text-muted">${product.price}</p> */}
-                        {/* <button
-                  onClick={() => addToCart(product)}
-                  className="btn btn-dark w-100"
-                >
-                  Add to Cart
-                </button> */}
+                        <h5 className="card-title fw-bold group-hover:text-white">{similarProduct.productName}</h5>
+
+                        <div className="d-flex flex-wrap gap-1">
+                          {JSON.parse(product.sizeName).map((size) => (
+                            <label
+                              key={size}
+                              className={`btn btn-outline-dark group-hover:btn-outline-white`}
+                            >
+                              <input
+                                type="checkbox"
+                                className="d-none"
+                                checked={true}
+                                onChange={() => handleCheckboxChange("sizes", size)}
+                              />
+                              {size}
+                            </label>
+                          ))}
+                        </div>
+
                       </div>
                     </div>
                   </Link>
