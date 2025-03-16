@@ -35,7 +35,11 @@ body {
 .grayscale-0 {
   filter: grayscale(0%);
 }
-
+@media (max-width:576px) {
+  .grayscale-sm-0{
+    filter: grayscale(0%);
+  }
+}
 .group:hover .group-hover\:grayscale-0 {
   filter: grayscale(0%);
 }

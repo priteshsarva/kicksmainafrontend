@@ -1,4 +1,6 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
+
 
 const HeroSection = () => {
     return (
@@ -28,9 +30,10 @@ const HeroSection = () => {
                     <div>
                         <h2 className="display-1 fw-bold mb-3">Elevate Your Stride</h2>
                         <p className="fs-4 mb-4">Premium Footwear Engineered for Performance</p>
-                        <button className="btn btn-light fw-semibold px-4 py-2 rounded-0">
+                        {/* <Link to='/' className='text-dark text-decoration-none'>  */}
+                        <Link to='/product' className="btn btn-light fw-semibold px-4 py-2 rounded-0">
                             Shop New Arrivals
-                        </button>
+                        </Link>
                     </div>
                 </div>
             </section>

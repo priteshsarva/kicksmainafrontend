@@ -1074,6 +1074,7 @@ progress {
     --bs-gutter-y: 3rem
 }
 
+
 @media (min-width:576px) {
     .col-sm {
         flex: 1 0 0%
@@ -8215,7 +8216,11 @@ fieldset:disabled .btn {
 .opacity-0 {
     opacity: 0 
 }
-
+@media (max-width:576px) {
+    .opacity-sm-100{
+        opacity: 1;
+    }
+}
 .opacity-25 {
     opacity: .25 !important
 }

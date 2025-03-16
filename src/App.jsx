@@ -648,12 +648,16 @@ const App = () => {
               path="/product/:id/backdoor"
               element={<ProductPageWithPrive products={products} />}
             />
-             <Route
+            <Route
               path="/product/"
               element={<AllProducts products={products} />}
             />
-              <Route
+            <Route
               path="/search/:searchterm"
+              element={<AllProducts products={products} />}
+            />
+             <Route
+              path="/category/:searchcategory"
               element={<AllProducts products={products} />}
             />
             <Route path="/terms" element={<TermsOfService />} />

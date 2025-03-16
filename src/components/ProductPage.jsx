@@ -70,7 +70,7 @@ export default function ProductPage({ products }) {
           {/* <p className="h2 mb-5">${product.price}</p> */}
 
           {/* Size Selection */}
-          <div className="mb-5">
+          <div className="my-5">
             <h3 className="h5 mb-3">Select Size</h3>
             <div className="row row-cols-3 g-2">
               {sizes.map(size => (
@@ -90,12 +90,12 @@ export default function ProductPage({ products }) {
           </div>
 
           {/* Add to Cart Button */}
-          <button
+          {/* <button
             className="btn btn-dark w-100 py-3 mb-5"
             disabled={!selectedSize}
           >
             Add to Cart
-          </button>
+          </button> */}
 
 
         </div>

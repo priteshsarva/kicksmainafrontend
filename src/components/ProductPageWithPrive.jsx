@@ -67,10 +67,12 @@ const ProductPageWithPrive = ({ products }) => {
                 {/* Product Details */}
                 <div className="col-md-6">
                     <h1 className="display-4 mb-4">{product.productName}</h1>
-                    <p className="h2 mb-5">₹{product.productOriginalPrice}</p>
+                    <p className="h2 ">₹{product.productOriginalPrice}</p>
+                    <Link to={product.productUrl} target='blank'>{product.productUrl}</Link>
+
 
                     {/* Size Selection */}
-                    <div className="mb-5">
+                    <div className="mb-5 mt-5">
                         <h3 className="h5 mb-3">Select Size</h3>
                         <div className="row row-cols-3 g-2">
                             {sizes.map(size => (
