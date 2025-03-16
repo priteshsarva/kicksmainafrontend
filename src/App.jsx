@@ -598,6 +598,7 @@ const App = () => {
     )
 
 
+console.log("exit page");
 
     // fetch('https://kicksmaniaserver.onrender.com/product/all', {
     //   method: 'GET',
@@ -621,7 +622,10 @@ const App = () => {
 
   return (
     <>
-      {products == "" ? <Loader /> :
+      {products == "" ?
+        // <Loader /> 
+        ""
+        :
         <Router>
           <ScrollToTop />
           <NavBaar productss={products} />
@@ -654,7 +658,7 @@ const App = () => {
               path="/search/:searchterm"
               element={<AllProducts products={products} />}
             />
-             <Route
+            <Route
               path="/category/:searchcategory"
               element={<AllProducts products={products} />}
             />
