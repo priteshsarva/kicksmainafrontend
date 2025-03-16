@@ -96,7 +96,7 @@ const SingleCollection = (products) => {
           >
             <ProductGride products={{ products: filteredProducts }} />
 
-            <Link to='/product' >view more</Link>
+            <Link to='/product' className='w-100 d-flex justify-content-center text-dark mt-4 btn btn-light fw-semibold px-4 py-2 rounded-0'><h5>View More</h5></Link>
           </div>
         </div>
       </div>

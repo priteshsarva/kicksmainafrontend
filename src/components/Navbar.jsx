@@ -194,7 +194,7 @@ const NavBaar = (products) => {
               </div>
             ))}
           {searchResults.length !== 0 ? <>
-            <Link to={`/search/${searchTerm}`} className='w-100 d-flex justify-content-center text-dark text-decoration-none' onClick={handleCloseSearch}><h5>View More</h5></Link>
+            <Link to={`/search/${searchTerm}`} className='container m-auto w-100 d-flex justify-content-center text-dark mt-4 btn btn-light fw-semibold px-4 py-2 rounded-0' onClick={handleCloseSearch}><h5>View More</h5></Link>
           </> : <h5>No Result Found</h5>}
           {/* show more */}
         </Offcanvas.Body >
