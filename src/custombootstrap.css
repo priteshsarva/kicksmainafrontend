@@ -797,6 +797,9 @@ progress {
 }
 
 @media (min-width:768px) {
+    .h4-md{
+        font-size: 1.5rem
+    }
 
     .container,
     .container-md,

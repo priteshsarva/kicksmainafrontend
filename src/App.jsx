@@ -160,7 +160,7 @@ const App = () => {
           "productDescription": null,
           "productBrand": "NIK E",
           "sizeName": "[\"42\",\"43\",\"44\",\"45\"]",
-          "catName": "MENS+SHOES"
+          "catName": "UA+QUALITY+SHOE"
         },
         {
           "productId": 8,
@@ -178,7 +178,7 @@ const App = () => {
           "productDescription": null,
           "productBrand": "Nikee SB",
           "sizeName": "[\"45\"]",
-          "catName": "MENS+SHOES"
+          "catName": "UA Quality"
         },
         {
           "productId": 9,
@@ -196,7 +196,7 @@ const App = () => {
           "productDescription": null,
           "productBrand": ".NIKE AIRFORCE",
           "sizeName": "[\"41\",\"42\",\"43\",\"44\",\"45\"]",
-          "catName": "MENS+SHOES"
+          "catName": "UA Quality"
         },
         {
           "productId": 10,
