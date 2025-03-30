@@ -66,7 +66,7 @@ const NavBaar = (products) => {
           {/* Mobile View */}
           <div className="d-flex justify-content-between w-100 d-md-none align-items-center">
             <Nav.Link className="m-0">
-              <Link to='/' className="text-dark text-decoration-none"><h1>Kicks Mania</h1></Link>
+              <Link to='/' className="h3 text-dark text-decoration-none">Kicks Mania</Link>
             </Nav.Link>
             <div className="d-flex gap-2">
               <Button
@@ -88,7 +88,7 @@ const NavBaar = (products) => {
 
           {/* Desktop View */}
           <div className="d-none d-md-flex justify-content-center w-100">
-            <Nav.Link><Link to='/' className="text-dark text-decoration-none"><h1>Kicks Mania</h1></Link></Nav.Link>
+            <Nav.Link><Link to='/' className="h3  text-dark text-decoration-none">Kicks Mania</Link></Nav.Link>
           </div>
         </Container>
       </Navbar>
