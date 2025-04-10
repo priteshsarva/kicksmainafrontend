@@ -669,7 +669,7 @@ console.log("exit page");
             <Route path="/faq" element={<Faq />} />
           </Routes>
 
-          <FooterOne />
+          {/* <FooterOne /> */}
         </Router>
       }
     </>

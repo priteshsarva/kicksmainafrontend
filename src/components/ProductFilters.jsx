@@ -88,8 +88,7 @@ export default function ProductFilters({ onFilterChange }) {
         "Converse",
         "UA Quality"
     ];
-    // const categories = ["sneakers", "boots", "sandals"];
-    // const sizes = ["6", "7", "8", "9", "10", "11"];
+
 
     const handleCheckboxChange = (type, value) => {
         const newFilters = {
@@ -97,14 +96,33 @@ export default function ProductFilters({ onFilterChange }) {
             [type]: filters[type].includes(value.slice(0, 3))
                 ? filters[type].filter((item) => item !== value.slice(0, 3))
                 : [...filters[type], value.slice(0, 3)],
-
         };
-        console.log( filters[type].includes(value))
+        console.log(filters[type].includes(value))
         setFilters(newFilters);
-
         onFilterChange(newFilters);
     };
 
+
+
+    // const handleCheckboxChange = (type, value) => {
+    //     let exists = filters[type].map(e=>{
+    //         return e[0] == value[0]
+    //     })
+
+
+    //     const newFilters = {
+    //         ...filters,
+    //         [type]: exists.includes(true)
+    //             ? filters[type].filter((item) => {
+    //                 console.log(item);
+    //                 item !== value
+    //             })
+    //             : [...filters[type], value],
+    //     };
+    //     // console.log(filters[type].includes(value))
+    //     setFilters(newFilters);
+    //     onFilterChange(newFilters);
+    // };
     return (
         <>
             {/* Mobile Dropdown Button */}
@@ -164,8 +182,11 @@ export default function ProductFilters({ onFilterChange }) {
                                     <input
                                         className="form-check-input"
                                         type="checkbox"
+
                                         checked={filters.categories.includes(key.slice(0, 3))}
                                         onChange={() => handleCheckboxChange("categories", key)}
+                                        // checked={filters.categories.includes(key.slice(0, 3))}
+                                        // onChange={() => handleCheckboxChange("categories", categories[key])}
                                         id={`category-${key}`}
                                     />
                                     <label className="form-check-label text-capitalize" htmlFor={`category-${key}`}>
@@ -197,19 +218,30 @@ export default function ProductFilters({ onFilterChange }) {
                     <h5 className="fw-bold mb-2">Sizes</h5>
                     <div className="d-flex flex-wrap gap-2">
                         {
-                            Object.keys(sizes).map((key) => {
+                            Object.keys(sizes).map((keys) => {
+
+                                let active = filters.sizes.map(e => {
+                                    let valuee = ''
+                                    if (e[0] === keys) {
+                                        valuee = "active"
+                                    }
+                                    return valuee
+                                })
                                 return (
                                     <label
-                                        key={key}
-                                        className={`btn btn-outline-dark ${filters.sizes.includes(key) ? "active" : ""}`}
+                                        key={keys}
+                                        className={`btn btn-outline-dark ${active.includes("active") ? "active" : ""}`}
                                     >
                                         <input
                                             type="checkbox"
                                             className="d-none"
-                                            checked={filters.sizes.includes(key)}
-                                            onChange={() => handleCheckboxChange("sizes", key)}
+                                            checked={filters.sizes.includes(keys)}
+                                            onChange={() => handleCheckboxChange("sizes", keys)}
+
+                                            // checked={filters.sizes.includes(keys)}
+                                            // onChange={() => handleCheckboxChange("sizes", keys)}
                                         />
-                                        {key}
+                                        {keys}
                                     </label>
                                 );
                             })

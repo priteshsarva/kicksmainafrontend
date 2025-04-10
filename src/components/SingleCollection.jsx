@@ -70,6 +70,8 @@ const SingleCollection = (products) => {
   };
 
   const handleFilterChange = (newFilters) => {
+    console.log(newFilters);
+    
 
     const filtered = products.products.filter(product => {
       const matchesBrand = newFilters.brands.length === 0 ||
@@ -77,10 +79,10 @@ const SingleCollection = (products) => {
           product.productName.toLowerCase().includes(brand.toLowerCase())
         );
 
-      const matchSize = newFilters.sizes.length === 0 || filterBySize(product, newFilters.sizes)
+     
+        const matchSize = newFilters.sizes.length === 0 || filterBySize(product, newFilters.sizes)
+
       const matchesCategory = newFilters.categories.length === 0 || filterByCategory(product, newFilters.categories)
-
-
       return matchesBrand
         && matchSize
         && matchesCategory;
@@ -101,6 +103,7 @@ const SingleCollection = (products) => {
     <>
       {/* Products with Filters */}
       <div className="container py-5">
+        
 
         <div className="row flex-column flex-sm-row">
 

@@ -13,13 +13,20 @@ export default function ShoeCarousel({ productss }) {
     dots: false,
     infinite: true,
     speed: 500,
-    slidesToShow: 4,
-    slidesToScroll: 4,
+    slidesToShow: 1,
+    slidesToScroll: 1,
     arrows: true,
     swipeToSlide: true,
+
+    lazyLoad: true,
+
+    className: "slider variable-width",
+    variableWidth: true,
+    centerMode: true,
     // Disable swiping globally (optional)
     // swipe: false,
     // touchMove: false,
+
     responsive: [
       {
         breakpoint: 1024,
@@ -38,8 +45,9 @@ export default function ShoeCarousel({ productss }) {
       {
         breakpoint: 480,
         settings: {
-          slidesToShow: 2,
-          slidesToScroll: 1,
+          // slidesToShow: 2,
+          // slidesToScroll: 1,
+          arrows: false,
           // 👇 Disable swipe specifically for mobile
           // swipe: false,
           // touchMove: false,
@@ -50,33 +58,39 @@ export default function ShoeCarousel({ productss }) {
   };
 
   return (
-    <div className="container py-5 px-5">
+    <div className="container py-5 px-5 ">
       <h2 className="text-center mb-4 fw-bold">Bestsellers</h2>
-      <Slider {...settings}>
+      <Slider {...settings} >
         {productss.map((product) => (
           <>
-          
+            <div
+               className="col-6 col-md-3 col-sm-3 px-2" 
+              key={product.productId}
+              style={{ width: '200px'  }} 
+              >
+              <div class="card border-0 h-100 product-card" style={{ overflow: 'hidden' }}>
+                <Link to={`/product/${product.productId}`} class="text-decoration-none position-relative" data-discover="true" style={{ color: 'inherit' }}>
+                  <div class="card-img-container position-relative" style={{ paddingTop: "133.5%" }}>
+                    <img
+                      class="card-img-top position-absolute top-0 start-0 w-100 h-100 object-fit-cover transition-opacity"
+                      src={Array.isArray(product.image) ? product.image[0] : product.featuredimg}
+                      alt={product.productName}
+                      loading="lazy"
+                      style={{ opacity: 1, transition: 'opacity 0.3s ease', aspectRatio: "1/1" }} />
+                  </div>
+
+                  <div class="card-body pt-2 px-2 tex-center">
+                    <h5 class="card-title mb-2" style={{ fontWeight: 600, fontSize: '1.1rem', color: "#212529" }}>
+                      {product.productName}
+                    </h5>
 
 
-            <div key={product.productId} className="px-2">
-              <div className={`card border-1 shadow-sm p-3 text-center h-100 hover:bg-black group transition-all duration-300 rounded-0`}>
-                <Link to={`/product/${product.productId}`} className="text-decoration-none" style={{ color: 'black' }}>
-                  <img
-                    src={
-                      Array.isArray(product.image) ? product.image[0] : product.featuredimg
-                    }
-                    alt={product.productName}
-                    className="card-img-top img-fluid"
-                    style={{ height: "200px", objectFit: "cover" }}
-                  />
-                  <div className="card-body">
-                    <h5 className="card-title group-hover:text-white">{product.productName}</h5>
-                    <div className="d-flex flex-wrap gap-1">
 
+                    <div class="size-options d-flex flex-wrap gap-1 mb-2">
                       {JSON.parse(product.sizeName).map((size) => (
                         <label
                           key={size}
-                          className={`btn btn-outline-dark group-hover:btn-outline-white`}
+                          className="variant-btn btn btn-sm btn-outline-dark"
                         >
                           <input
                             type="checkbox"
@@ -88,16 +102,24 @@ export default function ShoeCarousel({ productss }) {
                         </label>
                       ))}
                     </div>
-                    {/* <p className="text-muted">${product.price}</p> */}
-                    {/* <button
-                  onClick={() => addToCart(product)}
-                  className="btn btn-dark w-100"
-                >
-                  Add to Cart
-                </button> */}
+
+                    {/* <div class="price-container">
+                      <div class="price__sale">
+                        <span class="price-item price-item--sale fw-bold" style="font-size: 1.1rem;">
+                          Rs. 12,999.00
+                        </span>
+                      </div>
+                    </div>
+
+                    <div class="promo-badge mt-2">
+                      <span class="badge bg-light text-dark border" style="font-size: 0.75rem;">
+                        Extra ₹500 Off on Prepaid Orders
+                      </span>
+                    </div> */}
                   </div>
                 </Link>
               </div>
+
             </div>
           </>
         ))}
