@@ -30,7 +30,7 @@ const FooterOne = () => {
     return (
         <>
             {/* Customer Reviews */}
-            <section className="py-5">
+            {/* <section className="py-5">
                 <h2 className="text-center fw-bold mb-4">What Our Customers Say</h2>
                 <div className="container px-3">
                     <div className="row g-4">
@@ -59,7 +59,7 @@ const FooterOne = () => {
                         ))}
                     </div>
                 </div>
-            </section>
+            </section> */}
 
             {/* USP Section */}
             <section className="py-5">
@@ -69,7 +69,7 @@ const FooterOne = () => {
                             <div className="d-flex flex-column align-items-center">
                                 <Truck className="mb-3" style={{ width: "48px", height: "48px" }} />
                                 <h3 className="fw-semibold">Free Shipping</h3>
-                                <p className="text-secondary">On all orders over $100</p>
+                                <p className="text-secondary">7 days replace/exchange</p>
                             </div>
                         </div>
                         <div className="col-md-4">

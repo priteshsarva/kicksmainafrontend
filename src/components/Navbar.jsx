@@ -65,6 +65,23 @@ const NavBaar = (products) => {
         <Container fluid>
           {/* Mobile View */}
           <div className="d-flex justify-content-between w-100 d-md-none align-items-center">
+            <div className="d-flex gap-2">
+              <Button
+                variant="link"
+                onClick={() => setShowMenu(true)}
+                className="text-dark p-1"
+              >
+                <FaBars size={20} />
+              </Button>
+              {/* <Button
+                variant="link"
+                onClick={() => setShowSearch(true)}
+                className="text-dark p-1"
+              >
+                <FaSearch size={20} />
+              </Button> */}
+
+            </div>
             <Nav.Link className="m-0">
               <Link to='/' className="h3 text-dark text-decoration-none">Kicks Mania</Link>
             </Nav.Link>
@@ -76,13 +93,7 @@ const NavBaar = (products) => {
               >
                 <FaSearch size={20} />
               </Button>
-              <Button
-                variant="link"
-                onClick={() => setShowMenu(true)}
-                className="text-dark p-1"
-              >
-                <FaBars size={20} />
-              </Button>
+
             </div>
           </div>
 
@@ -163,38 +174,89 @@ const NavBaar = (products) => {
           </Button>
         </Offcanvas.Header>
         <Offcanvas.Body className="overflow-auto">
-          {searchResults
-            .slice(0, 3)
-            .map((result, index) => (
 
-              <div key={index} className="p-2 border-bottom">
-                <Link to={`/product/${result.productId}`} className="container m-auto row gap-1" onClick={handleCloseSearch} style={{ color: 'black', textDecoration: 'none' }}>
-                  <img src={result.featuredimg} alt="" className='col-12 col-sm-5' style={{ height: '250px', objectFit: 'cover', aspectRatio: '1/1' }} />
 
-                  <div className='col'>
-                    <h2 >{result.productName}</h2>
 
-                    <div className="row">
-                      {
 
-                        JSON.parse(result.sizeName).map(size => (
 
-                          <div key={size} className="col-3 mb-2">
-                            <button
-                              // onClick={() => setSelectedSize(size)}
-                              className={`btn w-100 btn-outline-dark`}
+
+
+          <div className="row g-2">
+            {searchResults
+              .slice(0, 3)
+              .map((product, index) => (
+                <div className="col-6 col-md-3 col-sm-3" key={product.productId}>
+                  <div class="card border-0  h-100 product-card rounded-0" style={{ overflow: 'hidden' }}>
+                    <Link  to={`/product/${product.productId}`}  class="text-decoration-none position-relative" data-discover="true" style={{ color: 'inherit' }}>
+                      <div class="card-img-container position-relative" style={{ paddingTop: "133.5%" }}>
+                        <img
+                          class="card-img-top position-absolute top-0 start-0 w-100 h-100 object-fit-cover transition-opacity rounded-0"
+                          src={Array.isArray(product.image) ? product.image[0] : product.featuredimg}
+                          alt={product.productName}
+                          loading="lazy"
+                          style={{ opacity: 1, transition: 'opacity 0.3s ease', aspectRatio: "1/1" }} />
+                      </div>
+
+                      <div class="card-body pt-2 px-2 tex-center">
+                        <h5 class="card-title mb-2" style={{ fontWeight: 500, fontSize: '1.1rem', color: "#212529" }}>
+                          {product.productName}
+                        </h5>
+
+
+
+                        <div class="size-options d-flex flex-wrap gap-1 mb-2">
+                          {JSON.parse(product.sizeName).map((size) => (
+                            <label
+                              key={size}
+                              className="btn btn-sm btn-outline-dark rounded-0"
                             >
+                              <input
+                                type="checkbox"
+                                className="d-none"
+                                checked={true}
+                                onChange={() => handleCheckboxChange("sizes", size)}
+                              />
                               {size}
-                            </button>
-                          </div>
-
-                        ))
-                      }
-                    </div>
+                            </label>
+                          ))}
+                        </div>
+                      </div>
+                    </Link>
                   </div>
-                </Link>
-              </div>
-            ))}
+
+                </div>
+
+
+
+                // <div key={index} className="p-2 border-bottom">
+                //   <Link to={`/product/${result.productId}`} className="container m-auto row gap-1" onClick={handleCloseSearch} style={{ color: 'black', textDecoration: 'none' }}>
+                //     <img src={result.featuredimg} alt="" className='col-12 col-sm-5' style={{ height: '250px', objectFit: 'cover', aspectRatio: '1/1' }} />
+
+                //     <div className='col'>
+                //       <h2 >{result.productName}</h2>
+
+                //       <div className="row">
+                //         {
+
+                //           JSON.parse(result.sizeName).map(size => (
+
+                //             <div key={size} className="col-3 mb-2">
+                //               <button
+                //                 // onClick={() => setSelectedSize(size)}
+                //                 className={`btn w-100 btn-outline-dark`}
+                //               >
+                //                 {size}
+                //               </button>
+                //             </div>
+
+                //           ))
+                //         }
+                //       </div>
+                //     </div>
+                //   </Link>
+                // </div>
+              ))}
+          </div>
           {searchResults.length !== 0 ? <>
             <Link to={`/search/${searchTerm}`} className='container m-auto w-100 d-flex justify-content-center text-dark mt-4 btn btn-light fw-semibold px-4 py-2 rounded-0' onClick={handleCloseSearch}><h5>View More</h5></Link>
           </> : <h5>No Result Found</h5>}
@@ -206,10 +268,12 @@ const NavBaar = (products) => {
       < Offcanvas
         show={showMenu}
         onHide={() => setShowMenu(false)}
-        placement="end"
+        placement="start"
       >
         <Offcanvas.Header closeButton>
-          <Offcanvas.Title><h2> Kicks Mania</h2></Offcanvas.Title>
+          <Offcanvas.Title><h2> All Product</h2></Offcanvas.Title>
+          {/* <Offcanvas.Title><h5> Kicks Mania</h5></Offcanvas.Title> */}
+
         </Offcanvas.Header>
         <Offcanvas.Body>
           <Nav className="flex-column gap-3">

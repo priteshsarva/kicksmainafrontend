@@ -636,8 +636,9 @@ console.log("exit page");
                 <>
                   <HeroSection />
                   <ShopBrand />
-                  <FeaturedCategories />
                   <ShoeCarousel productss={products} />
+                  <FeaturedCategories />
+                  
                   <SingleCollection products={products} />
                 </>
               }
@@ -669,7 +670,7 @@ console.log("exit page");
             <Route path="/faq" element={<Faq />} />
           </Routes>
 
-          {/* <FooterOne /> */}
+          <FooterOne />
         </Router>
       }
     </>

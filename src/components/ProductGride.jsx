@@ -16,11 +16,11 @@ const ProductGride = (products) => {
                         .map((product) => (
 
                             <div className="col-6 col-md-3 col-sm-3" key={product.productId}>
-                                <div class="card border-0  h-100 product-card" style={{ overflow: 'hidden' }}>
+                                <div class="card border-0  h-100 product-card rounded-0" style={{ overflow: 'hidden' }}>
                                     <Link to={`/product/${product.productId}`} class="text-decoration-none position-relative" data-discover="true" style={{ color: 'inherit' }}>
                                         <div class="card-img-container position-relative" style={{ paddingTop: "133.5%" }}>
                                             <img
-                                                class="card-img-top position-absolute top-0 start-0 w-100 h-100 object-fit-cover transition-opacity"
+                                                class="card-img-top position-absolute top-0 start-0 w-100 h-100 object-fit-cover transition-opacity rounded-0"
                                                 src={Array.isArray(product.image) ? product.image[0] : product.featuredimg}
                                                 alt={product.productName}
                                                 loading="lazy"
@@ -28,7 +28,7 @@ const ProductGride = (products) => {
                                         </div>
 
                                         <div class="card-body pt-2 px-2 tex-center">
-                                            <h5 class="card-title mb-2" style={{ fontWeight: 600, fontSize: '1.1rem', color: "#212529" }}>
+                                            <h5 class="card-title mb-2" style={{ fontWeight: 500, fontSize: '1.1rem', color: "#212529" }}>
                                                 {product.productName}
                                             </h5>
 
@@ -38,7 +38,7 @@ const ProductGride = (products) => {
                                                 {JSON.parse(product.sizeName).map((size) => (
                                                     <label
                                                     key={size}   
-                                                    className="variant-btn btn btn-sm btn-outline-dark"
+                                                    className="btn btn-sm btn-outline-dark rounded-0"
                                                      >
                                                     <input
                                                             type="checkbox"
