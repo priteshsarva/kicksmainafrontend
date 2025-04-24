@@ -185,7 +185,7 @@ const NavBaar = (products) => {
             {searchResults
               .slice(0, 3)
               .map((product, index) => (
-                <div className="col-6 col-md-3 col-sm-3" key={product.productId}>
+                <div className="col-6 col-md-2 col-sm-3" key={product.productId}>
                   <div class="card border-0  h-100 product-card rounded-0" style={{ overflow: 'hidden' }}>
                     <Link  to={`/product/${product.productId}`}  class="text-decoration-none position-relative" data-discover="true" style={{ color: 'inherit' }}>
                       <div class="card-img-container position-relative" style={{ paddingTop: "133.5%" }}>
