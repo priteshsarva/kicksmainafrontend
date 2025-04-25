@@ -1,12 +1,21 @@
 import React from 'react'
-import nike from '../assets/images/brandsnike.jpg'
-import brandsadidas from '../assets/images/brandsadidas.jpg'
-import brandscrocsslide from '../assets/images/brandscrocs-slide .jpg'
-import brandsjordan from '../assets/images/brandsjordan.jpg'
-import brandsnewbalenciaga from '../assets/images/brandsnew balenciaga .jpg'
-import yeezy from '../assets/images/yeezy.jpg'
+// import nike from '../assets/images/brandsnike.jpg'
+// import brandsadidas from '../assets/images/brandsadidas.jpg'
+// import brandscrocsslide from '../assets/images/brandscrocs-slide .jpg'
+// import brandsjordan from '../assets/images/brandsjordan.jpg'
+// import yeezy from '../assets/images/yeezy.jpg'
+// import brandsothers from '../assets/images/brandsothers.jpg'
 
-import brandsothers from '../assets/images/brandsothers.jpg'
+
+import nike from '../assets/images/brand-nike.jpg'
+import brandsadidas from '../assets/images/adidas.png'
+import brandscrocsslide from '../assets/images/crocs.png'
+import brandsjordan from '../assets/images/brand-jordan.jpg'
+import yeezy from '../assets/images/brand-yeezy.jpg'
+import brandsothers from '../assets/images/other.jpg'
+
+
+
 import { Link } from 'react-router-dom'
 
 

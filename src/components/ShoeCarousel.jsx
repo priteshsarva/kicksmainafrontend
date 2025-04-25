@@ -18,7 +18,7 @@ export default function ShoeCarousel({ productss }) {
     arrows: true,
     swipeToSlide: true,
 
-    lazyLoad: true,
+    // lazyLoad: true,
 
     className: "slider variable-width",
     variableWidth: true,
@@ -58,7 +58,7 @@ export default function ShoeCarousel({ productss }) {
   };
 
   return (
-    <div className="container py-5 px-5 ">
+    <div className="container py-5 pt-5 ">
       <h2 className="text-center text-md-left mb-4">Best Sellers</h2>
       <Slider {...settings} >
         {productss.map((product) => (
