@@ -205,3 +205,11 @@ body {
   background-color: rgb(255 255 255 / 0);
   border-color: rgb(255 255 255 / var(--tw-bg-opacity, 1));
 }
+
+
+.truncate-2-lines {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* number of lines to show */
+  -webkit-box-orient: vertical;
+}

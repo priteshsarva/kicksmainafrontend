@@ -18,9 +18,9 @@ const ProductGride = (products) => {
                             <div className="col-6 col-md-3 col-sm-3" key={product.productId}>
                                 <div class="card border-0  h-100 product-card rounded-0" style={{ overflow: 'hidden' }}>
                                     <Link to={`/product/${product.productId}`} class="text-decoration-none position-relative" data-discover="true" style={{ color: 'inherit' }}>
-                                        <div class="card-img-container position-relative" style={{ paddingTop: "133.5%" }}>
+                                        <div class="card-img-container position-relative" >
                                             <img
-                                                class="card-img-top position-absolute top-0 start-0 w-100 h-100 object-fit-cover transition-opacity rounded-0"
+                                                class="card-img-top top-0 start-0 w-100 object-fit-cover transition-opacity rounded-0"
                                                 src={Array.isArray(product.image) ? product.image[0] : product.featuredimg}
                                                 alt={product.productName}
                                                 loading="lazy"
@@ -28,25 +28,25 @@ const ProductGride = (products) => {
                                         </div>
 
                                         <div class="card-body pt-2 px-2 tex-center">
-                                            <h5 class="card-title mb-2" style={{ fontWeight: 500, fontSize: '1.1rem', color: "#212529" }}>
+                                            <p class="card-title mb-2 truncate-2-lines" style={{ fontWeight: 500, color: "#212529" }}>
                                                 {product.productName}
-                                            </h5>
+                                            </p>
 
 
 
                                             <div class="size-options d-flex flex-wrap gap-1 mb-2">
                                                 {JSON.parse(product.sizeName).map((size) => (
                                                     <label
-                                                    key={size}   
-                                                    className="btn btn-sm btn-outline-dark rounded-0"
-                                                     >
-                                                    <input
+                                                        key={size}
+                                                        className="btn btn-sm btn-outline-dark rounded-0"
+                                                        style={{ fontSize: "0.8rem", padding: "0.15rem 0.3rem" }}>
+                                                        <input
                                                             type="checkbox"
                                                             className="d-none"
                                                             checked={true}
                                                             onChange={() => handleCheckboxChange("sizes", size)}
                                                         />
-                                                         {size}
+                                                        {size}
                                                     </label>
                                                 ))}
                                             </div>
@@ -72,7 +72,7 @@ const ProductGride = (products) => {
                         ))}
                 </div>
 
-               
+
             </div>
 
         </>

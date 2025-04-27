@@ -62,14 +62,14 @@ const FooterOne = () => {
             </section> */}
 
             {/* USP Section */}
-            <section className="py-5">
+            {/* <section className="py-5">
                 <div className="container px-3 text-center">
                     <div className="row g-4">
                         <div className="col-md-4">
                             <div className="d-flex flex-column align-items-center">
                                 <Truck className="mb-3" style={{ width: "48px", height: "48px" }} />
                                 <h3 className="fw-semibold">Free Shipping</h3>
-                                <p className="text-secondary">7 days replace/exchange</p>
+                                <p className="text-secondary">7 days replace / exchange</p>
                             </div>
                         </div>
                         <div className="col-md-4">
@@ -88,7 +88,52 @@ const FooterOne = () => {
                         </div>
                     </div>
                 </div>
+            </section> */}
+
+
+            <section class="py-5">
+                <div class="container px-3 text-center">
+                    <div class="row row-cols-3 g-4">
+                        <div class="col">
+                            <div class="d-flex flex-column align-items-center">
+                            <Truck className="mb-3 col-4" style={{ width: "48px", height: "48px" }} />
+                                {/* <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-truck mb-3 col-4" viewBox="0 0 24 24">
+                                    <path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"></path>
+                                    <path d="M15 18H9"></path>
+                                    <path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14"></path>
+                                    <circle cx="17" cy="18" r="2"></circle>
+                                    <circle cx="7" cy="18" r="2"></circle>
+                                </svg> */}
+                                <h5 class="fw-semibold">Free Shipping</h5>
+                                <p class="text-secondary">7 days replace/ exchange</p>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="d-flex flex-column align-items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-refresh-ccw mb-3 col-4" viewBox="0 0 24 24">
+                                    <path d="M21 12a9 9 0 0 0-9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path>
+                                    <path d="M3 3v5h5"></path>
+                                    <path d="M3 12a9 9 0 0 0 9 9 9.75 9.75 0 0 0 6.74-2.74L21 16"></path>
+                                    <path d="M16 16h5v5"></path>
+                                </svg>
+                                <h5 class="fw-semibold">30-Day Returns</h5>
+                                <p class="text-secondary">Hassle-free returns</p>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="d-flex flex-column align-items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-shield-check mb-3 col-4" viewBox="0 0 24 24">
+                                    <path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"></path>
+                                    <path d="m9 12 2 2 4-4"></path>
+                                </svg>
+                                <h5 class="fw-semibold">Secure Checkout</h5>
+                                <p class="text-secondary">100% protected</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </section>
+
 
             {/* Footer */}
             <footer className="bg-dark text-white py-5">

@@ -42,7 +42,7 @@ const SingleCollection = (products) => {
   // new code
 
 
-  const [filteredProducts, setFilteredProducts] = useState(products.products.slice(0, 9));
+  const [filteredProducts, setFilteredProducts] = useState(products.products.slice(0, 10));
 
 
   const filterBySize = (product, size) => {
@@ -71,7 +71,7 @@ const SingleCollection = (products) => {
 
   const handleFilterChange = (newFilters) => {
     console.log(newFilters);
-    
+
 
     const filtered = products.products.filter(product => {
       const matchesBrand = newFilters.brands.length === 0 ||
@@ -79,8 +79,8 @@ const SingleCollection = (products) => {
           product.productName.toLowerCase().includes(brand.toLowerCase())
         );
 
-     
-        const matchSize = newFilters.sizes.length === 0 || filterBySize(product, newFilters.sizes)
+
+      const matchSize = newFilters.sizes.length === 0 || filterBySize(product, newFilters.sizes)
 
       const matchesCategory = newFilters.categories.length === 0 || filterByCategory(product, newFilters.categories)
       return matchesBrand
@@ -94,7 +94,7 @@ const SingleCollection = (products) => {
     //   return matchesBrand && matchesCategory;
     // });
 
-    setFilteredProducts(filtered.slice(0, 9));
+    setFilteredProducts(filtered.slice(0, 10));
   };
 
 
@@ -103,7 +103,7 @@ const SingleCollection = (products) => {
     <>
       {/* Products with Filters */}
       <div className="container py-5">
-        
+
 
         <div className="row flex-column flex-sm-row">
 
@@ -126,7 +126,13 @@ const SingleCollection = (products) => {
           >
             <ProductGride products={{ products: filteredProducts }} />
 
-            <Link to='/product' className='w-100 d-flex justify-content-center text-dark mt-4 btn btn-light fw-semibold px-4 py-2 rounded-0'><h5>View All Products</h5></Link>
+            <Link to='/product' className='w-100 d-flex justify-content-center text-dark mt-4 btn  fw-semibold px-4 rounded-0'>
+              <h6>View All Products
+                <svg viewBox="0 0 14 10" fill="none" aria-hidden="true" focusable="false" class="icon icon-arrow ms-1" width="14" height="10" xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M8.537.808a.5.5 0 01.817-.162l4 4a.5.5 0 010 .708l-4 4a.5.5 0 11-.708-.708L11.793 5.5H1a.5.5 0 010-1h10.793L8.646 1.354a.5.5 0 01-.109-.546z" fill="currentColor"></path>
+                </svg>
+              </h6>
+            </Link>
           </div>
         </div>
       </div>

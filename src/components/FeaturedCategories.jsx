@@ -10,8 +10,8 @@ const FeaturedCategories = () => {
     ];
     return (
         <>
-            <div className="container py-5 px-3">
-                <h2 className="text-center text-md-left mb-4">Discover by Categories</h2>
+            <div className="container pb-3 px-3">
+                <h2 className="text-center text-md-left mb-4">Find by Category</h2>
                 <div className="row g-4">
                     {categories.map((category) => (
                         // <div key={category.name} className="col-md-6">
