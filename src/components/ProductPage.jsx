@@ -37,7 +37,11 @@ export default function ProductPage({ products }) {
             src={selectedImage}
             alt={product.productName}
             className="img-fluid rounded"
-            style={{ height: '500px', objectFit: 'cover', width: '100%' }}
+            style={{
+              // height: '500px',
+              objectFit: 'cover', width: '100%',
+              aspectRatio: "1/1"
+            }}
           />
 
           {/* Thumbnail Gallery */}
@@ -52,7 +56,8 @@ export default function ProductPage({ products }) {
                     style={{
                       height: '100px',
                       objectFit: 'cover',
-                      width: '100%',
+                      // width: '100%',
+                      aspectRatio: "1/1",
                       border: selectedImage === image ? '2px solid #000' : '1px solid #ddd',
                     }}
                     onClick={() => setSelectedImage(image)}
@@ -66,13 +71,13 @@ export default function ProductPage({ products }) {
 
         {/* Product Details */}
         <div className="col-md-6">
-          <h1 className="display-4 mb-4">{product.productName}</h1>
+          <h1 className=" mb-4">{product.productName}</h1>
           {/* <p className="h2 mb-5">${product.price}</p> */}
 
           {/* Size Selection */}
           <div className="my-5">
-            <h3 className="h5 mb-3">Select Size</h3>
-            <div className="row row-cols-3 g-2">
+            <h5 className="mb-3">Select Size</h5>
+            <div className="row row-cols-6 g-2 mb-5">
               {sizes.map(size => (
                 <div key={size} className="col">
                   <button
@@ -86,6 +91,31 @@ export default function ProductPage({ products }) {
                   </button>
                 </div>
               ))}
+            </div>
+            {/* Add to Cart Button */}
+            <div className="row row-cols-2 g-2">
+              <div className="col">
+                <button
+                  className="btn btn-dark w-100 py-3"
+                >
+                  Request for size
+                </button>
+              </div>
+              <div className="col">
+                <button
+                  className="btn btn-dark  w-100  py-3"
+                  disabled={!selectedSize}
+                  onClick={(e) => {
+                    console.log("hello");
+                  }}
+
+                >
+                  <a href={`https://api.whatsapp.com/send?phone=919723515869&text=*Product%20Name*%3A%20*${product.productName}*%0A*Size*%3A%20*${selectedSize}*%0A*Product%20URL*%3A%20${window.location.href}`}
+                  
+                  target='_blank'>Share
+                  </a>
+                </button>
+              </div>
             </div>
           </div>
 
