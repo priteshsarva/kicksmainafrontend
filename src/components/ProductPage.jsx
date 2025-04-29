@@ -111,8 +111,8 @@ export default function ProductPage({ products }) {
 
                 >
                   <a href={`https://api.whatsapp.com/send?phone=919723515869&text=*Product%20Name*%3A%20*${product.productName}*%0A*Size*%3A%20*${selectedSize}*%0A*Product%20URL*%3A%20${window.location.href}`}
-                  
-                  target='_blank'>Share
+
+                    target='_blank'>Share
                   </a>
                 </button>
               </div>
@@ -130,6 +130,78 @@ export default function ProductPage({ products }) {
 
         </div>
 
+
+
+
+        <div className="container py-5" style={{ color: '#000' }}>
+      {/* Title */}
+      <div className="text-center mb-5">
+        <h2 style={{ letterSpacing: '2px', fontWeight: 'bold', textTransform: 'uppercase' }}>
+          Why Choose <span style={{ textDecoration: 'underline' }}>KicksMania</span>?
+        </h2>
+      </div>
+
+      {/* Features Grid */}
+      <div className="row row-cols-1 row-cols-md-2 g-4 mb-5">
+        {[
+          'Premium Quality Only – No Market First Copies',
+          'Original Box Packaging with every pair',
+          'Sourced from Trusted Manufacturers',
+          '10,000+ Happy Customers & Counting',
+          'Live Product Videos Before Dispatch on Request',
+          'Fast & Secure Shipping All Over India'
+        ].map((item, idx) => (
+          <div className="col" key={idx}>
+            <div className="d-flex align-items-start">
+              <div style={{ fontSize: '1.2rem', marginRight: '10px' }}>✔</div>
+              <div><strong>{item.split('–')[0]}</strong>{item.includes('–') ? ` – ${item.split('–')[1]}` : ''}</div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* Brand Message */}
+      <div className="text-center mb-4">
+        <h4 style={{ fontWeight: 'bold', textTransform: 'uppercase' }}>Trust the Name – KicksMania</h4>
+        <p style={{ color: '#555', margin: 0 }}>Where quality meets affordability.</p>
+        <p style={{ color: '#555' }}>High-end sneakers at the best price, with no compromise.</p>
+      </div>
+
+      {/* Buttons */}
+      <div className="text-center">
+      <p style={{ color: '#555' }}>Want to see it before you buy?</p>
+        <a
+          href="https://wa.me/91XXXXXXXXXX"
+          className="btn btn-dark me-3 mb-3"
+          style={{ fontWeight: 'bold', borderRadius: '50px', padding: '10px 25px' }}
+        >
+          🔴 Live Video on WhatsApp
+        </a>       
+      </div>
+    </div>
+
+
+
+
+
+
+
+
+        <div className="mt-5">
+          <h2 className="h2 mb-4">Why Choose Us?</h2>
+
+          <ul style={{ listStyleType: 'disc' }}>
+            <li>Premium Quality Only – No Market First Copies </li>
+            <li>Comes with Original Box Packaging </li>
+            <li>Sourced Directly from Trusted Manufacturers</li>
+            <li>10000+ Happy Customers &amp; Counting </li>
+            <li>Live Product Videos Before Dispatching also available</li>
+            <li>Fast &amp; Secure Shipping All Over India</li>
+          </ul>
+          <br />
+          <p><strong>Trust the Name – KicksMania</strong><br />- Where quality meets affordability<br />- We deliver high-end sneakers at the best price without compromising on look or feel.</p>
+          <p>- Want to see it before you buy?<br />- Live videos available on WhatsApp. Just message us.</p>
+        </div>
         {/* Product Details Accordion */}
         {/* <div className="border-top border-bottom pt-4">
           <h3 className="h5 mb-3">Product Details</h3>
