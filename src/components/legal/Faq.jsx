@@ -9,12 +9,13 @@ const Faq = () => {
         <div className="accordion-item">
           <h2 className="accordion-header">
             <button className="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#question1">
-              What payment methods do you accept?
+            What are the shipping options available for customers? 
+
             </button>
           </h2>
           <div id="question1" className="accordion-collapse collapse show">
             <div className="accordion-body">
-              We accept all major credit cards including Visa, Mastercard, and American Express, as well as PayPal.
+            We provide shipping services throughout India. For international orders, customers can contact us through WhatsApp for further information.
             </div>
           </div>
         </div>
@@ -22,12 +23,13 @@ const Faq = () => {
         <div className="accordion-item">
           <h2 className="accordion-header">
             <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#question2">
-              How long does shipping take?
+            How long does it take for orders to be delivered? 
+
             </button>
           </h2>
           <div id="question2" className="accordion-collapse collapse">
             <div className="accordion-body">
-              Standard shipping typically takes 3-5 business days. Express options are available at checkout.
+            Our delivery time varies depending on the customer's location. In state capitals and metro cities, orders are usually delivered within 2 to 5 working days. For other localities, delivery may take up to 3 to 7 working days.
             </div>
           </div>
         </div>
@@ -35,12 +37,41 @@ const Faq = () => {
         <div className="accordion-item">
           <h2 className="accordion-header">
             <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#question3">
-              Can I return or exchange products?
+            What payment methods do you accept? 
             </button>
           </h2>
           <div id="question3" className="accordion-collapse collapse">
             <div className="accordion-body">
-              Yes, we offer a 30-day return policy. Please see our Returns Policy for details.
+            We accept multiple payment methods, including debit cards, credit cards, net 
+            banking, UPI payments, and Cash on Delivery (COD)
+            </div>
+          </div>
+        </div>
+
+        <div className="accordion-item">
+          <h2 className="accordion-header">
+            <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#question4">
+            What is the eligibility criteria for replacement?
+
+            </button>
+          </h2>
+          <div id="question4" className="accordion-collapse collapse">
+            <div className="accordion-body">
+            To be eligible for a  replacement, the item must be unused and in the same condition as received, and in the original packaging.
+            </div>
+          </div>
+        </div>
+
+        <div className="accordion-item">
+          <h2 className="accordion-header">
+            <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#question5">
+            Is an unboxing video necessary to raise a return/replacement query? 
+
+            </button>
+          </h2>
+          <div id="question5" className="accordion-collapse collapse">
+            <div className="accordion-body">
+            Yes, an unboxing video of the product is necessary to raise a return/replacement query to ensure that the product was received in the condition as we shipped.
             </div>
           </div>
         </div>

@@ -10,14 +10,14 @@ const FeaturedCategories = () => {
     ];
     return (
         <>
-            <div className="container pb-3 px-3">
+            {/* <div className="container pb-3 px-3">
                 <h2 className="text-center text-md-left mb-4">Find by Category</h2>
                 <div className="row g-4">
                     {categories.map((category) => (
                         // <div key={category.name} className="col-md-6">
                         <div key={category.name} className="col-6 col-md-3">
 
-                            <div className="position-relative group overflow-hidden rounded shadow-sm cursor-pointer">
+                            <div className="position-relative group overflow-hidden rounded-0 shadow-sm cursor-pointer">
 
                                 <img
                                     src={category.image}
@@ -25,11 +25,35 @@ const FeaturedCategories = () => {
                                     className="img-fluid w-100"
                                     style={{ height: "150px", objectFit: "cover" }}
                                 />
-                                <Link to={`/category/${category.name.toLowerCase().slice(0, 3)}`}>
-                                    <div className="position-absolute top-0 start-0 w-100 h-100 bg-dark bg-opacity-50 d-flex align-items-center justify-content-center bg-black bg-opacity-40 group-hover:bg-opacity-60 transition-all duration-300 flex items-center justify-center                  
+                                <Link to={`/category/${category.name.toLowerCase().slice(0, 3)}`} style={{ textDecoration: 'none' }}>
+                                    <div className="
+                                    position-absolute 
+
+                                    top-0 start-0 w-100 h-100 bg-dark bg-opacity-50 d-flex align-items-center justify-content-center bg-black bg-opacity-40 group-hover:bg-opacity-60 transition-all duration-300 flex items-center justify-center                 
                                 ">
 
-                                        <h3 className="text-white fw-bold">{category.name}</h3>
+                                        <h5 className="text-white fw-bold">{category.name}</h5>
+                                    </div>
+                                </Link>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </div > */}
+
+
+
+            <div className="container pb-3 px-3">
+                <h2 className="text-center text-md-left mb-4">Find by Category</h2>
+                <div className="row g-4">
+                    {categories.map((category) => (
+                        // <div key={category.name} className="col-md-6">
+                        <div key={category.name} className="col-6 col-md-3">
+
+                            <div className="position-relative group overflow-hidden rounded-0 shadow-sm cursor-pointer">
+                                <Link to={`/category/${category.name.toLowerCase().slice(0, 3)}`} style={{ textDecoration: 'none' }}>
+                                    <div className="top-0 start-0 w-100 h-100 bg-dark bg-opacity-50 d-flex align-items-center justify-content-center bg-black bg-opacity-40 group-hover:bg-opacity-60 transition-all duration-300 flex items-center justify-center py-3">
+                                        <h5 className="text-white fw-bold">{category.name}</h5>
                                     </div>
                                 </Link>
                             </div>
@@ -37,6 +61,9 @@ const FeaturedCategories = () => {
                     ))}
                 </div>
             </div >
+
+
+
 
         </>
     )

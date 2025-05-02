@@ -173,10 +173,10 @@ const PriivacyPolicy = () => {
                                 If you have any questions about this Privacy Policy, please contact us at:
                             </p>
                             <p>
-                                Grievance Officer: Mr. Rajesh Verma<br />
-                                Email: grievance.officer@kicksmania.in<br />
-                                Phone: +91 11 4084 5584<br />
-                                Address: F-12, Connaught Place, New Delhi - 110001<br />
+                                Grievance Officer: Farhan Pathan<br />
+                                Email: <a href="mailto:kickzmania.in@gmail.com" style={{ textDecoration: "none", color: 'black' }}>kickzmania.in@gmail.com</a><br />
+                                Phone: <a href="tel:+919723515869" style={{ textDecoration: "none", color: 'black' }}>+91 97235 15869</a><br />
+                                Address: Surat, Gujarat<br />
                                 Response Time: 30 days as mandated by IT Rules 2021
                             </p>
                         </div>

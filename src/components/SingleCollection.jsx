@@ -42,7 +42,7 @@ const SingleCollection = (products) => {
   // new code
 
 
-  const [filteredProducts, setFilteredProducts] = useState(products.products.slice(0, 10));
+  const [filteredProducts, setFilteredProducts] = useState(products.products.slice(0,12));
 
 
   const filterBySize = (product, size) => {
@@ -94,7 +94,7 @@ const SingleCollection = (products) => {
     //   return matchesBrand && matchesCategory;
     // });
 
-    setFilteredProducts(filtered.slice(0, 10));
+    setFilteredProducts(filtered.slice(0, 12));
   };
 
 

@@ -32,10 +32,10 @@ const HeroSection = () => {
                     alt="Hero"
                     className="w-100 h-100 object-fit-cover filter grayscale"
                 />
-                <div className="position-absolute top-0 start-0 w-100 h-100 bg-black bg-opacity-50 d-flex align-items-center justify-content-center text-center text-white">
+                <div className="position-absolute top-0 start-0 w-100 h-100 bg-black bg-opacity-50 d-flex align-items-end justify-content-center text-center text-white pb-5">
                     <div>
-                        <h2 className="display-1 fw-bold mb-3">Elevate Your Stride</h2>
-                        <p className="fs-4 mb-4">Premium Footwear Engineered for Performance</p>
+                        {/* <h2 className="display-1 fw-bold mb-3">Elevate Your Stride</h2>
+                        <p className="fs-4 mb-4">Premium Footwear Engineered for Performance</p> */}
                         {/* <Link to='/' className='text-dark text-decoration-none'>  */}
                         <Link to='/product' className="btn btn-light fw-semibold px-4 py-2 rounded-0">
                             Shop New Arrivals

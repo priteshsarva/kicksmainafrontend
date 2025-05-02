@@ -598,7 +598,7 @@ const App = () => {
     )
 
 
-console.log("exit page");
+    console.log("exit page");
 
     // fetch('https://kicksmaniaserver.onrender.com/product/all', {
     //   method: 'GET',
@@ -638,7 +638,6 @@ console.log("exit page");
                   <ShopBrand />
                   <ShoeCarousel productss={products} />
                   <FeaturedCategories />
-                  
                   <SingleCollection products={products} />
                 </>
               }

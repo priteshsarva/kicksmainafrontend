@@ -187,23 +187,28 @@ const NavBaar = (products) => {
               .map((product, index) => (
                 <div className="col-6 col-md-2 col-sm-3" key={product.productId}>
                   <div class="card border-0  h-100 product-card rounded-0" style={{ overflow: 'hidden' }}>
-                    <Link to={`/product/${product.productId}`} class="text-decoration-none position-relative" data-discover="true" style={{ color: 'inherit' }}>
+                    <Link to={`/product/${product.productId}`} class="text-decoration-none position-relative" data-discover="true" style={{ color: 'inherit' }}
+                      onClick={handleCloseSearch}
+                    >
                       <div class="card-img-container position-relative">
                         <img
                           class="card-img-top  top-0 start-0 w-100 object-fit-cover transition-opacity rounded-0"
                           src={Array.isArray(product.image) ? product.image[0] : product.featuredimg}
                           alt={product.productName}
                           loading="lazy"
-                          style={{ opacity: 1, transition: 'opacity 0.3s ease', aspectRatio: "1/1" }} />
+                          style={{ opacity: 1, transition: 'opacity 0.3s ease', aspectRatio: "1/1" }}
+                        />
                       </div>
 
                       <div class="card-body pt-2 px-2 tex-center">
-                        <p class="card-title mb-2 truncate-2-lines" style={{ fontWeight: 500,
+                        <p class="card-title mb-2 truncate-2-lines" style={{
+                          fontWeight: 500,
                           //  fontSize: '1.1rem', 
-                           color: "#212529" }}>
+                          color: "#212529"
+                        }}>
                           {product.productName}
                         </p>
-                        
+
                         <div class="size-options d-flex flex-wrap gap-1 mb-2">
                           {JSON.parse(product.sizeName).map((size) => (
                             <label
@@ -228,7 +233,7 @@ const NavBaar = (products) => {
               ))}
           </div>
           {searchResults.length !== 0 ? <>
-            <Link to={`/search/${searchTerm}`} className='w-100 d-flex justify-content-center text-dark mt-4 btn  fw-semibold px-4 rounded-0'>
+            <Link to={`/search/${searchTerm}`} className='w-100 d-flex justify-content-center text-dark mt-4 btn  fw-semibold px-4 rounded-0' onClick={handleCloseSearch}>
               <h6>View All Products
                 <svg viewBox="0 0 14 10" fill="none" aria-hidden="true" focusable="false" class="icon icon-arrow ms-1" width="14" height="10" xmlns="http://www.w3.org/2000/svg">
                   <path fill-rule="evenodd" clip-rule="evenodd" d="M8.537.808a.5.5 0 01.817-.162l4 4a.5.5 0 010 .708l-4 4a.5.5 0 11-.708-.708L11.793 5.5H1a.5.5 0 010-1h10.793L8.646 1.354a.5.5 0 01-.109-.546z" fill="currentColor"></path>

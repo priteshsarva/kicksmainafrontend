@@ -96,7 +96,7 @@ const FooterOne = () => {
                     <div class="row row-cols-3 g-4">
                         <div class="col">
                             <div class="d-flex flex-column align-items-center">
-                            <Truck className="mb-3 col-4" style={{ width: "48px", height: "48px" }} />
+                                <Truck className="mb-3 col-4" style={{ width: "48px", height: "48px" }} />
                                 {/* <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-truck mb-3 col-4" viewBox="0 0 24 24">
                                     <path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"></path>
                                     <path d="M15 18H9"></path>
@@ -105,7 +105,7 @@ const FooterOne = () => {
                                     <circle cx="7" cy="18" r="2"></circle>
                                 </svg> */}
                                 <h5 class="fw-semibold">Free Shipping</h5>
-                                <p class="text-secondary">7 days replace/ exchange</p>
+                                {/* <p class="text-secondary">7 days replace/ exchange</p> */}
                             </div>
                         </div>
                         <div class="col">
@@ -116,8 +116,9 @@ const FooterOne = () => {
                                     <path d="M3 12a9 9 0 0 0 9 9 9.75 9.75 0 0 0 6.74-2.74L21 16"></path>
                                     <path d="M16 16h5v5"></path>
                                 </svg>
-                                <h5 class="fw-semibold">30-Day Returns</h5>
-                                <p class="text-secondary">Hassle-free returns</p>
+                                <h5 class="fw-semibold">7 days replace/ exchange</h5>
+                                {/* <h5 class="fw-semibold">30-Day Returns</h5>
+                                <p class="text-secondary">Hassle-free returns</p> */}
                             </div>
                         </div>
                         <div class="col">
@@ -127,7 +128,7 @@ const FooterOne = () => {
                                     <path d="m9 12 2 2 4-4"></path>
                                 </svg>
                                 <h5 class="fw-semibold">Secure Checkout</h5>
-                                <p class="text-secondary">100% protected</p>
+                                {/* <p class="text-secondary">100% protected</p> */}
                             </div>
                         </div>
                     </div>
@@ -141,8 +142,8 @@ const FooterOne = () => {
                     <div className="row g-4">
                         <div className="col-md-3">
                             <h4 className="fw-bold mb-3">Contact</h4>
-                            <p>support@kicksmania.com</p>
-                            <p>+91 97235 15869</p>
+                            <a href="mailto:kickzmania.in@gmail.com" style={{ textDecoration: "none", color: 'white' }}>kickzmania.in@gmail.com</a><br />
+                            <a href="tel:+919723515869" style={{ textDecoration: "none", color: 'white' }}>+91 97235 15869 </a>
                         </div>
                         <div className="col-md-3">
                             <h4 className="fw-bold mb-3">Customer Service</h4>
