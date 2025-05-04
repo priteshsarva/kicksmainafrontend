@@ -30,7 +30,7 @@ const HeroSection = () => {
                     src={herobanner}
 
                     alt="Hero"
-                    className="w-100 h-100 object-fit-cover filter grayscale"
+                    className="w-100 h-100 object-fit-cover filter "
                 />
               
               {/* <div className="position-absolute top-0 start-0 w-100 h-100 bg-black bg-opacity-50 d-flex align-items-end justify-content-center text-center text-white pb-5"> */}

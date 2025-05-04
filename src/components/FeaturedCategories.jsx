@@ -52,7 +52,7 @@ const FeaturedCategories = () => {
 
                             <div className="position-relative group overflow-hidden rounded-0 shadow-sm cursor-pointer">
                                 <Link to={`/category/${category.name.toLowerCase().slice(0, 3)}`} style={{ textDecoration: 'none' }}>
-                                    <div className="top-0 start-0 w-100 h-100 bg-dark bg-opacity-50 d-flex align-items-center justify-content-center bg-black bg-opacity-40 group-hover:bg-opacity-60 transition-all duration-300 flex items-center justify-center py-3">
+                                    <div className="top-0 start-0 w-100 h-100 bg-dark  d-flex align-items-center justify-content-center bg-black bg-opacity-40 group-hover:bg-opacity-60 transition-all duration-300 flex items-center justify-center py-3">
                                         <h5 className="text-white fw-bold">{category.name}</h5>
                                     </div>
                                 </Link>
