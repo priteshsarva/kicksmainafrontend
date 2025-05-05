@@ -107,8 +107,8 @@ const NavBaar = (products) => {
       {/* Second Line Header */}
       <Navbar expand="md" className="border-bottom py-1 d-none d-md-block bg-white">
         <Container fluid className="justify-content-center">
-          <Nav className="gap-4">
-            <Nav.Link ><Link to={`/search/nik`} className="text-dark text-decoration-none"> Nike</Link></Nav.Link>
+          <Nav className="gap-4 text-center">
+            <Nav.Link ><Link to={`/search/nik`} className="text-dark text-decoration-none "> Nike</Link></Nav.Link>
             <Nav.Link ><Link to={`/search/Jor`} className="text-dark text-decoration-none"> Jordan</Link></Nav.Link>
             <Nav.Link ><Link to={`/search/Yee`} className="text-dark text-decoration-none"> Yeezy</Link></Nav.Link>
             <Nav.Link ><Link to={`/search/Air`} className="text-dark text-decoration-none"> Airforce</Link></Nav.Link>
