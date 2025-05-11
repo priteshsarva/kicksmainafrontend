@@ -25,37 +25,38 @@ const ShopBrand = () => {
         {
             title: "Nike",
             image: nike,
-            description: "Athletic & Casual Sneakers"
+            description: "Athletic & Casual Sneakers",
+            url: "Nik",
         },
         {
             title: "Adidas",
             image: brandsadidas,
-            description: "Classic & Combat Boots"
+            description: "Classic & Combat Boots",
+            url: "Adi",
         },
         {
             title: "Jordan",
             image: brandsjordan,
-            description: "Comfort & Style Sandals"
+            description: "Comfort & Style Sandals",
+            url: "Jor",
         },
-        // {
-        //     title: "New Balenciaga ",
-        //     image: brandsnewbalenciaga,
-        //     description: "Comfort & Style Sandals"
-        // },
         {
             title: "Yeezy ",
             image: yeezy,
-            description: "Comfort & Style Sandals"
+            description: "Comfort & Style Sandals",
+            url: "Yee",
         },
         {
             title: "Crocs/slide ",
             image: brandscrocsslide,
-            description: "Athletic & Casual Sneakers"
+            description: "Athletic & Casual Sneakers",
+            url: "Cro",
         },
         {
             title: "Others",
             image: brandsothers,
-            description: "Classic & Combat Boots"
+            description: "Classic & Combat Boots",
+            url: "",
         },
 
     ];
@@ -73,7 +74,7 @@ const ShopBrand = () => {
                     <div class="row">
                         {categories.map((category, index) => (
                             <div key={index} class="col-6 col-md-4 col-lg-4 mb-2 group">
-                                <Link to={`${category.title === 'Others' ? '/product' : `/search/`+ category.title.slice(0, 3)}`}
+                                <Link to={`${category.title === 'Others' ? '/product' : `/search/` + category.url}`}
                                     style={{ textDecoration: "none" }}>
                                     <div class="card h-100 border-0  rounded-0 ">
                                         <div class="card-img-top position-relative overflow-hidden rounded-0 " style={{ paddingTop: "60%" }}>

@@ -3,10 +3,10 @@ import { Link } from 'react-router-dom';
 
 const FeaturedCategories = () => {
     const categories = [
-        { name: "Men's shoe", image: "https://images.unsplash.com/photo-1600185365483-26d7a4cc7519" },
-        { name: "Women's shoe", image: "https://images.unsplash.com/photo-1608256246200-53e635b5b65f" },
-        { name: "Flip-Flop", image: "https://images.unsplash.com/photo-1603487742131-4160ec999306" },
-        { name: "UA Quality", image: "https://images.unsplash.com/photo-1603487742131-4160ec999306" },
+        { name: "Men's shoe", image: "https://images.unsplash.com/photo-1600185365483-26d7a4cc7519", url: "Men shoes", },
+        { name: "Women's shoe", image: "https://images.unsplash.com/photo-1608256246200-53e635b5b65f", url: "Women shoes", },
+        { name: "Flip-Flop", image: "https://images.unsplash.com/photo-1603487742131-4160ec999306", url: "Flip-Flop", },
+        { name: "UA Quality", image: "https://images.unsplash.com/photo-1603487742131-4160ec999306", url: "UA Quality", },
     ];
     return (
         <>
@@ -51,7 +51,7 @@ const FeaturedCategories = () => {
                         <div key={category.name} className="col-6 col-md-3">
 
                             <div className="position-relative group overflow-hidden rounded-0 shadow-sm cursor-pointer">
-                                <Link to={`/category/${category.name.toLowerCase().slice(0, 3)}`} style={{ textDecoration: 'none' }}>
+                                <Link to={`/category/${category.url}`} style={{ textDecoration: 'none' }}>
                                     <div className="top-0 start-0 w-100 h-100 bg-dark  d-flex align-items-center justify-content-center bg-black bg-opacity-40 group-hover:bg-opacity-60 transition-all duration-300 flex items-center justify-center py-3">
                                         <h5 className="text-white fw-bold">{category.name}</h5>
                                     </div>

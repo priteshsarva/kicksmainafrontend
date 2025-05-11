@@ -6,15 +6,18 @@ import ProductFilters from './ProductFilters'
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-const AllProducts = (products) => {
-    const { searchterm, searchcategory } = useParams();
+import Loader from './Loader';
 
-console.log(searchterm, searchcategory);
+const baseUrl = import.meta.env.VITE_BASE_URL;
+
+const AllProducts = () => {
+    const { searchterm, searchcategory } = useParams();
+    const [products, setproducts] = useState("")
+    const [hash, sethash] = useState(window.location.hash)
+
+    console.log(searchterm, searchcategory);
 
     const [filteredProducts, setFilteredProducts] = useState(products.products);
-
-
-
 
     const filterBySize = (product, size) => {
 
@@ -66,30 +69,64 @@ console.log(searchterm, searchcategory);
 
 
     useEffect(() => {
-        if (searchterm) {
-            const filtered = products.products.filter(product => {
+       
+        if (products != '') {
+            if (searchterm) {
+                const filtered = products.filter(product => {
 
-                const matchesBrand = product.productName.toLowerCase().includes(searchterm.toLowerCase());
+                    const matchesBrand = product.productName.toLowerCase().includes(searchterm.toLowerCase());
 
-                return matchesBrand;
-            });
-            setFilteredProducts(filtered);
-        } else {
-            // If no search term, reset to all products
-            setFilteredProducts(products.products);
+                    return matchesBrand;
+                });
+                setFilteredProducts(filtered);
+            } else {
+                // If no search term, reset to all products
+                setFilteredProducts(products.products);
+            }
+
+            if (searchcategory) {
+                const filtered = products.products.filter(product => {
+
+                    const matchesBrand = product.catName.toLowerCase().includes(searchcategory.toLowerCase());
+
+                    return matchesBrand;
+                });
+                setFilteredProducts(filtered);
+            } else {
+                // If no search term, reset to all products
+                setFilteredProducts(products.products);
+            }
         }
 
-        if (searchcategory) {
-            const filtered = products.products.filter(product => {
+        if (products == '') {
+            let url = ""
+            console.log(hash);
 
-                const matchesBrand = product.catName.toLowerCase().includes(searchcategory.toLowerCase());
+            if (hash.includes('#/category/')) {
+                url = `${baseUrl}/product/search?category=${searchcategory}`
+            }
+            else if (hash.includes('#/search/')) {
+                url = `${baseUrl}/product/search?q=${searchterm}`
 
-                return matchesBrand;
-            });
-            setFilteredProducts(filtered);
-        } else {
-            // If no search term, reset to all products
-            setFilteredProducts(products.products);
+            } else if (hash.includes('#/product')) {
+                url = `${baseUrl}/product/results`
+                // const searchQuery = hash.split('#/search/')[1];
+                // console.log('Search Query:', decodeURIComponent(searchQuery));
+            }
+
+            console.log(url);
+
+            fetch(url, {
+                method: 'GET',
+            })
+                .then(response => response.json())
+                .then(data => {
+                    setproducts(data.results)
+                    // products = data.results
+                    console.log(data.results);
+                    console.log(products);
+                })
+                .catch(error => console.error('Error:', error));
         }
 
     }, [searchterm])
@@ -98,34 +135,38 @@ console.log(searchterm, searchcategory);
 
     return (
         <>
-            {/* Products with Filters */}
-            <div className="container py-5">
+            {products == "" ? <Loader /> :
+                <>
+                    {/* Products with Filters */}
+                    < div className="container py-5">
 
-                <div className="row flex-column flex-sm-row">
+                        <div className="row flex-column flex-sm-row">
 
-                    {/* Sidebar for Filters */}
-                    <div
-                        // className="col-4 col-md-6 col-lg-8 "
-                        className="col-sm-3 col-md-3 "
-                        style={{
-                            // maxWidth:"16rem",
-                            padding: "1rem"
-                        }}
-                    >
-                        <ProductFilters onFilterChange={handleFilterChange} />
+                            {/* Sidebar for Filters */}
+                            <div
+                                // className="col-4 col-md-6 col-lg-8 "
+                                className="col-sm-3 col-md-3 "
+                                style={{
+                                    // maxWidth:"16rem",
+                                    padding: "1rem"
+                                }}
+                            >
+                                <ProductFilters onFilterChange={handleFilterChange} />
 
-                    </div>
+                            </div>
 
-                    {/* Product Grid Section */}
-                    <div
-                        className="col"
-                    >
-                        <ProductGride products={{ products: filteredProducts }} />
+                            {/* Product Grid Section */}
+                            <div
+                                className="col"
+                            >
+                                {/* <ProductGride products={{ products: filteredProducts }} /> */}
+                                <ProductGride products={{ products }} />
 
-                    </div>
-                </div>
-            </div>
-
+                            </div>
+                        </div>
+                    </div >
+                </>
+            }
         </>
     )
 }
