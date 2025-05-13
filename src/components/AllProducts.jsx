@@ -14,6 +14,7 @@ const AllProducts = () => {
     const { searchterm, searchcategory } = useParams();
     const [products, setproducts] = useState("")
     const [hash, sethash] = useState(window.location.hash)
+    const [url, seturl] = useState('')
 
     console.log(searchterm, searchcategory);
 
@@ -46,30 +47,84 @@ const AllProducts = () => {
     const handleFilterChange = (newFilters) => {
         console.log(newFilters);
 
-        const filtered = products.products.filter(product => {
-            const matchesBrand = newFilters.brands.length === 0 ||
-                newFilters.brands.some(brand =>
-                    product.productName.toLowerCase().includes(brand.toLowerCase())
-                )
+        let urls = `${baseUrl}/product/search?`;
 
-            // const matchesCategory = newFilters.categories.length === 0 || 
-            //     newFilters.categories.includes(product.catName);
+        if (newFilters.brands.length > 0) {
+            console.log("brand filter applied");
+            urls += `q=${encodeURIComponent(newFilters.brands[0])}&`;
+        }
 
-            const matchSize = newFilters.sizes.length === 0 || filterBySize(product, newFilters.sizes)
-            const matchesCategory = newFilters.categories.length === 0 || filterByCategory(product, newFilters.categories)
+        if (newFilters.categories.length > 0) {
+            console.log("category filter applied");
+            urls += `category=${encodeURIComponent(newFilters.categories[0])}&`;
+        }
+
+        if (newFilters.sizes.length > 0) {
+            console.log("size filter applied");
+            urls += `size=${encodeURIComponent(newFilters.sizes[0])}&`;
+        }
+
+        // Remove trailing '&' if it exists
+        // if (urls.endsWith('&')) {
+        //     urls = urls.slice(0, -1);
+        // }
+        // product / search ? q = { jor } & size={ 42 }& category={ men }& result={ 2 }& page={ 2 }
+        urls += `result=20&page=1`;
 
 
-            return matchesBrand
-                && matchSize
-                && matchesCategory;
-        });
-        setFilteredProducts(filtered);
+        console.log("Constructed URL:", urls);
+
+        seturl(urls)
+
+        fetch(urls, {
+            method: 'GET',
+        })
+            .then(response => response.json())
+            .then(data => {
+                setproducts(data.results)
+                // products = data.results
+                console.log(data.results);
+                console.log(products);
+            })
+            .catch(error => console.error('Error:', error));
+
+
+
+
+
+
+
+        // const filtered = products.filter(product => {
+        //     const matchesBrand = newFilters.brands.length === 0 ||
+        //         newFilters.brands.some(brand =>
+        //             product.productName.toLowerCase().includes(brand.toLowerCase())
+        //         )
+
+        //     // const matchesCategory = newFilters.categories.length === 0 || 
+        //     //     newFilters.categories.includes(product.catName);
+
+        //     const matchSize = newFilters.sizes.length === 0 || filterBySize(product, newFilters.sizes)
+        //     const matchesCategory = newFilters.categories.length === 0 || filterByCategory(product, newFilters.categories)
+
+
+        //     return matchesBrand
+        //         && matchSize
+        //         && matchesCategory;
+        // });
+        // setFilteredProducts(filtered);
+        // console.log(filteredProducts);
+
+
     };
 
 
 
+
     useEffect(() => {
-       
+        sethash(window.location.hash)
+
+        console.log(filteredProducts);
+
         if (products != '') {
             if (searchterm) {
                 const filtered = products.filter(product => {
@@ -98,38 +153,42 @@ const AllProducts = () => {
             }
         }
 
-        if (products == '') {
-            let url = ""
-            console.log(hash);
 
-            if (hash.includes('#/category/')) {
-                url = `${baseUrl}/product/search?category=${searchcategory}`
-            }
-            else if (hash.includes('#/search/')) {
-                url = `${baseUrl}/product/search?q=${searchterm}`
+        let urls = ""
 
-            } else if (hash.includes('#/product')) {
-                url = `${baseUrl}/product/results`
-                // const searchQuery = hash.split('#/search/')[1];
-                // console.log('Search Query:', decodeURIComponent(searchQuery));
-            }
+        if (hash.includes('#/category/')) {
+            urls = `${baseUrl}/product/search?category=${searchcategory}`
+        }
+        else if (hash.includes('#/search/')) {
+            urls = `${baseUrl}/product/search?q=${searchterm}`
 
-            console.log(url);
-
-            fetch(url, {
-                method: 'GET',
-            })
-                .then(response => response.json())
-                .then(data => {
-                    setproducts(data.results)
-                    // products = data.results
-                    console.log(data.results);
-                    console.log(products);
-                })
-                .catch(error => console.error('Error:', error));
+        } else if (hash.includes('#/product')) {
+            urls = `${baseUrl}/product/results`
+            // const searchQuery = hash.split('#/search/')[1];
+            // console.log('Search Query:', decodeURIComponent(searchQuery));
         }
 
-    }, [searchterm])
+        console.log(urls);
+
+        seturl(urls)
+
+        fetch(urls, {
+            method: 'GET',
+        })
+            .then(response => response.json())
+            .then(data => {
+                setproducts(data.results)
+                // products = data.results
+                console.log(data.results);
+                console.log(products);
+            })
+            .catch(error => console.error('Error:', error));
+
+
+
+
+
+    }, [searchterm, window.location.hash])
 
 
 

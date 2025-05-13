@@ -72,8 +72,8 @@ export default function ProductFilters({ onFilterChange }) {
 
 
     const sizes = [
-        "40", "41", "42", "43", "44", "45", "46",
-        "36", "37", "38", "39", "47", "48"
+        "36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46",
+        "47", "48"
     ];
 
     const categories = [

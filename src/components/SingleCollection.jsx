@@ -108,7 +108,7 @@ const SingleCollection = (products) => {
         <div className="row flex-column flex-sm-row">
 
           {/* Sidebar for Filters */}
-          <div
+          {/* <div
             // className="col-4 col-md-6 col-lg-8 "
             className="col-sm-4 col-md-4"
             style={{
@@ -118,7 +118,7 @@ const SingleCollection = (products) => {
           >
             <ProductFilters onFilterChange={handleFilterChange} />
 
-          </div>
+          </div> */}
 
           {/* Product Grid Section */}
           <div
