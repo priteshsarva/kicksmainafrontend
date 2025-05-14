@@ -43,9 +43,6 @@ const App = () => {
       // fetch('http://localhost:5000/product/all', {
       // fetch(`${baseUrl}/product/search?size=40`, {
       fetch(`${baseUrl}/product/firstdata`, {
-
-
-
         method: 'GET',
       })
         .then(response => response.json())
