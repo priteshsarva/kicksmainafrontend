@@ -15,6 +15,7 @@ const AllProducts = () => {
     const [products, setproducts] = useState("")
     const [hash, sethash] = useState(window.location.hash)
     const [url, seturl] = useState('')
+    const [noproductFound, setnoproductFound] = useState(false)
 
     console.log(searchterm, searchcategory);
 
@@ -78,15 +79,19 @@ const AllProducts = () => {
 
         fetch(urls, {
             method: 'GET',
-        })
-            .then(response => response.json())
-            .then(data => {
+        }).then(response => response.json()).then(data => {
+            if (data.results != "") {
                 setproducts(data.results)
+                setnoproductFound(false)
+
+            } else {
+                setnoproductFound(true)
                 // products = data.results
                 console.log(data.results);
                 console.log(products);
-            })
-            .catch(error => console.error('Error:', error));
+            }
+
+        }).catch(error => console.error('Error:', error));
 
 
 
@@ -188,7 +193,7 @@ const AllProducts = () => {
 
 
 
-    }, [searchterm, window.location.hash])
+    }, [searchterm])
 
 
 
@@ -218,9 +223,9 @@ const AllProducts = () => {
                             <div
                                 className="col"
                             >
-                                {/* <ProductGride products={{ products: filteredProducts }} /> */}
-                                <ProductGride products={{ products }} />
-
+                                {noproductFound ? <p>No Result Found</p> :
+                                    <ProductGride products={{ products }} />
+                                }
                             </div>
                         </div>
                     </div >

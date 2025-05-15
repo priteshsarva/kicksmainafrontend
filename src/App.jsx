@@ -29,19 +29,8 @@ const App = () => {
   const [products, setproducts] = useState('')
 
 
-
-
-
-
-
   useEffect(() => {
     if (products == '') {
-
-      console.log(baseUrl);
-
-      // fetch('https://kicksmaniaserver.onrender.com/product/all', {
-      // fetch('http://localhost:5000/product/all', {
-      // fetch(`${baseUrl}/product/search?size=40`, {
       fetch(`${baseUrl}/product/firstdata`, {
         method: 'GET',
       })
@@ -61,7 +50,6 @@ const App = () => {
     <>
       {products == "" ?
         <Loader />
-        // ""
         :
         <Router>
           <ScrollToTop />
