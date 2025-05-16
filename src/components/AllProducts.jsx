@@ -16,7 +16,8 @@ const AllProducts = () => {
     const [hash, sethash] = useState(window.location.hash)
     const [url, seturl] = useState('')
     const [noproductFound, setnoproductFound] = useState(false)
-
+    const [totalPage, settotalPage] = useState()
+    const [curentPage, setcurentPage] = useState()
     console.log(searchterm, searchcategory);
 
     const [filteredProducts, setFilteredProducts] = useState(products.products);
@@ -70,12 +71,15 @@ const AllProducts = () => {
         //     urls = urls.slice(0, -1);
         // }
         // product / search ? q = { jor } & size={ 42 }& category={ men }& result={ 2 }& page={ 2 }
+        let page = curentPage + 1
+        seturl(`${urls}&result=20&page=?`)
+
+
         urls += `result=20&page=1`;
 
 
         console.log("Constructed URL:", urls);
 
-        seturl(urls)
 
         fetch(urls, {
             method: 'GET',
@@ -83,45 +87,48 @@ const AllProducts = () => {
             if (data.results != "") {
                 setproducts(data.results)
                 setnoproductFound(false)
+                settotalPage(data.totalPages)
+                setcurentPage(1)
 
             } else {
                 setnoproductFound(true)
-                // products = data.results
-                console.log(data.results);
-                console.log(products);
+
             }
 
         }).catch(error => console.error('Error:', error));
 
 
 
-
-
-
-
-        // const filtered = products.filter(product => {
-        //     const matchesBrand = newFilters.brands.length === 0 ||
-        //         newFilters.brands.some(brand =>
-        //             product.productName.toLowerCase().includes(brand.toLowerCase())
-        //         )
-
-        //     // const matchesCategory = newFilters.categories.length === 0 || 
-        //     //     newFilters.categories.includes(product.catName);
-
-        //     const matchSize = newFilters.sizes.length === 0 || filterBySize(product, newFilters.sizes)
-        //     const matchesCategory = newFilters.categories.length === 0 || filterByCategory(product, newFilters.categories)
-
-
-        //     return matchesBrand
-        //         && matchSize
-        //         && matchesCategory;
-        // });
-        // setFilteredProducts(filtered);
-        // console.log(filteredProducts);
-
-
     };
 
+
+    const handleloadmore = () => {
+        const nextPage = curentPage + 1;
+        console.log(totalPage);
+        console.log(curentPage);
+
+
+        // Update the page number in the existing URL
+        const updatedUrl = url.replace("page=?", `page=${nextPage}`);
+        console.log("Loading from URL:", updatedUrl);
+
+        fetch(updatedUrl, {
+            method: 'GET',
+        })
+            .then(response => response.json())
+            .then(data => {
+                if (data.results && data.results.length > 0) {
+                    setproducts([...(products || []), ...data.results]);
+
+                    setnoproductFound(false);
+                    settotalPage(data.totalPages);
+                    setcurentPage(nextPage);
+                } else {
+                    setnoproductFound(true);
+                }
+            })
+            .catch(error => console.error('Error:', error));
+    };
 
 
 
@@ -172,10 +179,13 @@ const AllProducts = () => {
             // const searchQuery = hash.split('#/search/')[1];
             // console.log('Search Query:', decodeURIComponent(searchQuery));
         }
+        // seturl(`${urls}&result=20&page=${curentPage+1}`)
+        let page = curentPage + 1
+        seturl(`${urls}&result=20&page=?`)
 
         console.log(urls);
 
-        seturl(urls)
+
 
         fetch(urls, {
             method: 'GET',
@@ -183,6 +193,9 @@ const AllProducts = () => {
             .then(response => response.json())
             .then(data => {
                 setproducts(data.results)
+                settotalPage(data.totalPages)
+                setcurentPage(1)
+
                 // products = data.results
                 console.log(data.results);
                 console.log(products);
@@ -224,7 +237,21 @@ const AllProducts = () => {
                                 className="col"
                             >
                                 {noproductFound ? <p>No Result Found</p> :
-                                    <ProductGride products={{ products }} />
+                                    <>
+                                        <ProductGride products={{ products, url }} />
+                                        {totalPage == curentPage ? "" :
+                                            <Link
+                                                // to='/product'
+                                                onClick={handleloadmore}
+                                                className='w-100 d-flex justify-content-center text-dark mt-4 btn bg-dark bg-opacity-25 fw-semibold px-4 rounded-0 hover:bg-opacity-50'>
+                                                <h6>View All Products
+                                                    <svg viewBox="0 0 14 10" fill="none" aria-hidden="true" focusable="false" class="icon icon-arrow ms-1" width="14" height="10" xmlns="http://www.w3.org/2000/svg">
+                                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M8.537.808a.5.5 0 01.817-.162l4 4a.5.5 0 010 .708l-4 4a.5.5 0 11-.708-.708L11.793 5.5H1a.5.5 0 010-1h10.793L8.646 1.354a.5.5 0 01-.109-.546z" fill="currentColor"></path>
+                                                    </svg>
+                                                </h6>
+                                            </Link>
+                                        }
+                                    </>
                                 }
                             </div>
                         </div>

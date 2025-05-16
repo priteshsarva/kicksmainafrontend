@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Navbar, Nav, Container, Offcanvas, Button, Form } from 'react-bootstrap';
 import { FaSearch, FaTimes, FaBars } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+const baseUrl = import.meta.env.VITE_BASE_URL;
 
 const NavBaar = (products) => {
   const [showSearch, setShowSearch] = useState(false);
@@ -24,31 +25,19 @@ const NavBaar = (products) => {
   const handleSearch = (e) => {
     const term = e.target.value.toLowerCase();
     setSearchTerm(term);
-    let productneeded = []
-    searchproducts.filter((item) => {
 
-      console.log(item.productName.toLowerCase().includes(term));
-      if (item.productName.toLowerCase().includes(term)) {
-        productneeded.push(item)
-      }
-      if (item.productBrand.toLowerCase().includes(term)) {
-        productneeded.push(item)
-      }
-      if (item.catName.toLowerCase().includes(term)) {
-        productneeded.push(item)
-      }
+    console.log(term);
+    let urls = `${baseUrl}/product/search?q=${term}`;
+    fetch(urls, {
+      method: 'GET',
+    })
+      .then(response => response.json())
+      .then(data => {
+        console.log(data.results);
+        setSearchResults(data.results);
 
-
-      const uniqueProducts = removeDuplicates(productneeded);
-      setSearchResults(uniqueProducts);
-      return productneeded
-
-    });
-    // console.log(filtered);
-
-
-    // setSearchResults(filtered); 
-
+      })
+      .catch(error => console.error('Error:', error));
   };
 
 
