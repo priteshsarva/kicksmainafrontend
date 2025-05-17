@@ -132,6 +132,8 @@ const AllProducts = () => {
 
 
 
+   
+
     useEffect(() => {
         sethash(window.location.hash)
 
