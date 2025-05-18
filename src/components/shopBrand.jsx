@@ -50,7 +50,7 @@ const ShopBrand = () => {
             title: "Crocs/slide ",
             image: brandscrocsslide,
             description: "Athletic & Casual Sneakers",
-            url: "Cro",
+            url: "Croc",
         },
         {
             title: "Others",
