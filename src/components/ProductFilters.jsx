@@ -191,23 +191,14 @@ export default function ProductFilters({ onFilterChange }) {
                                     type="radio"
                                     name="brand-radio"
                                     checked={isActivebrand}
-                                    // checked={filters.brands.includes(brand.slice(0, 3))}
-                                    onChange={() => {
-                                        // handleToggleableRadio("brands", brand);
-                                        // handleToggleableRadio("brands", brand)
-                                    }}
                                     id={`brand-${brand}`}
+                                    onChange={() => handleToggleableRadio("brands", brand)}
+                                // use onChange for radios — triggers only when selected
                                 />
-
-                                <label className="form-check-label" htmlFor={`brand-${brand}`}
-
-                                    onClick={(e) => {
-
-                                        // Prevent double trigger from input/label
-                                        handleToggleableRadio("brands", brand);
-
-                                    }}
-
+                                <label
+                                    className="form-check-label"
+                                    htmlFor={`brand-${brand}`}
+                                // No onClick needed here — clicking label triggers input onChange automatically
                                 >
                                     {brand}
                                 </label>
@@ -228,27 +219,17 @@ export default function ProductFilters({ onFilterChange }) {
                                     type="radio"
                                     name="category-radio"
                                     checked={isActivecategory}
-                                    // checked={filters.brands.includes(brand.slice(0, 3))}
-                                    onChange={() => {
-                                        // handleToggleableRadio("brands", brand);
-                                        // handleToggleableRadio("brands", brand)
-                                    }}
+                                    onChange={() => handleToggleableRadio("categories", category)}
                                     id={`category-${category}`}
                                 />
-
-                                <label className="form-check-label" htmlFor={`category-${category}`}
-
-                                    onClick={(e) => {
-
-                                        // Prevent double trigger from input/label
-                                        handleToggleableRadio("categories", category);
-
-                                    }}
-
+                                <label
+                                    className="form-check-label"
+                                    htmlFor={`category-${category}`}
                                 >
                                     {category}
                                 </label>
                             </div>
+
                         )
                     })}
 

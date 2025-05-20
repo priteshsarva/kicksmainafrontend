@@ -177,7 +177,7 @@ const AllProducts = () => {
             urls = `${baseUrl}/product/search?q=${searchterm}`
 
         } else if (hash.includes('#/product')) {
-            urls = `${baseUrl}/product/results`
+            urls = `${baseUrl}/product/results?`
             // const searchQuery = hash.split('#/search/')[1];
             // console.log('Search Query:', decodeURIComponent(searchQuery));
         }
