@@ -53,7 +53,23 @@ const AllProducts = () => {
 
         if (newFilters.brands.length > 0) {
             console.log("brand filter applied");
-            urls += `q=${encodeURIComponent(newFilters.brands[0])}&`;
+            console.log(newFilters.brands[0]);
+
+            if (newFilters.brands[0] === "Crocs Slide") {
+                urls += `q=${encodeURIComponent("croc")}&`;
+
+            } else if (newFilters.brands[0] === "Airforce") {
+                urls += `q=${encodeURIComponent("force")}&`;
+
+            } else if (newFilters.brands[0] === "Louis Vuitton") {
+                urls += `q=${encodeURIComponent("Vuitton")}&`;
+
+            } else if (newFilters.brands[0] === "Converse") {
+                urls += `q=${encodeURIComponent("conver")}&`;
+
+            } else {
+                urls += `q=${encodeURIComponent(newFilters.brands[0])}&`;
+            }
         }
 
         if (newFilters.categories.length > 0) {
@@ -132,7 +148,7 @@ const AllProducts = () => {
 
 
 
-   
+
 
     useEffect(() => {
         sethash(window.location.hash)

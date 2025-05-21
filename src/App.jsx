@@ -21,6 +21,7 @@ import PriivacyPolicy from './components/legal/PriivacyPolicy';
 import ProductPageWithPrive from './components/ProductPageWithPrive';
 import Loader from './components/Loader';
 import AllProducts from './components/AllProducts';
+import { Navigate } from "react-router-dom";
 
 const baseUrl = import.meta.env.VITE_BASE_URL;
 
@@ -72,7 +73,7 @@ const App = () => {
               element={<ProductPage products={products} />}
             />
             <Route
-              path="/product/:id/backdoor"
+              path="/product/:id/fkp"
               element={<ProductPageWithPrive products={products} />}
             />
             <Route
@@ -94,6 +95,7 @@ const App = () => {
             <Route path="/returns" element={<ReturnPolicy />} />
             <Route path="/shipping" element={<ShippingPolicy />} />
             <Route path="/faq" element={<Faq />} />
+            <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
 
           <FooterOne />
