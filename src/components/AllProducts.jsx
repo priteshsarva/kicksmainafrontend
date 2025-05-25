@@ -20,6 +20,8 @@ const AllProducts = () => {
     const [curentPage, setcurentPage] = useState()
     console.log(searchterm, searchcategory);
 
+    const [catViseProductsearch, setcatViseProductsearch] = useState(false)
+
     const [filteredProducts, setFilteredProducts] = useState(products.products);
 
     const filterBySize = (product, size) => {
@@ -51,6 +53,7 @@ const AllProducts = () => {
 
         let urls = `${baseUrl}/product/search?`;
 
+        
         if (newFilters.brands.length > 0) {
             console.log("brand filter applied");
             console.log(newFilters.brands[0]);
@@ -80,6 +83,14 @@ const AllProducts = () => {
         if (newFilters.sizes.length > 0) {
             console.log("size filter applied");
             urls += `size=${encodeURIComponent(newFilters.sizes[0])}&`;
+        }
+
+        if (newFilters.searchIncategoryByName.length > 0) {
+            console.log("searchIncategoryByNamesize filter applied");
+
+            urls += `category=${encodeURIComponent(searchcategory)}&q=${newFilters.searchIncategoryByName}&`;
+
+            // urls += `size=${encodeURIComponent(newFilters.sizes[0])}&`;
         }
 
         // Remove trailing '&' if it exists
@@ -187,6 +198,7 @@ const AllProducts = () => {
         let urls = ""
 
         if (hash.includes('#/category/')) {
+            setcatViseProductsearch(true)
             urls = `${baseUrl}/product/search?category=${searchcategory}`
         }
         else if (hash.includes('#/search/')) {
@@ -246,7 +258,7 @@ const AllProducts = () => {
                                     padding: "1rem"
                                 }}
                             >
-                                <ProductFilters onFilterChange={handleFilterChange} />
+                                <ProductFilters onFilterChange={handleFilterChange} catViseProductsearch={catViseProductsearch} />
 
                             </div>
 

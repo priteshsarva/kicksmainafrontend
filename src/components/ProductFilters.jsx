@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export default function ProductFilters({ onFilterChange }) {
+export default function ProductFilters({ onFilterChange, catViseProductsearch }) {
     const [filters, setFilters] = useState({
         brands: [],
         categories: [],
@@ -132,6 +132,30 @@ export default function ProductFilters({ onFilterChange }) {
         onFilterChange(newFilters);
     };
 
+
+    const filterOptions = (e) => {
+        const inputValue = e.target.value;
+
+        const newFilters = {
+            ...filters,
+            searchIncategoryByName: inputValue.toLowerCase()
+        };
+
+        onFilterChange(newFilters);
+
+        // const sections = ['brand', 'category', 'size'];
+
+        // sections.forEach(section => {
+        //     const labels = document.querySelectorAll(`[id^="${section}-"] + label`);
+
+        //     labels.forEach(label => {
+        //         const match = label.innerText.toLowerCase().includes(filter);
+        //         label.closest('.form-check')?.classList.toggle('d-none', !match);
+        //         label.closest('label.btn')?.classList.toggle('d-none', !match);
+        //     });
+        // });
+    }
+
     // const handleCheckboxChange = (type, value) => {
     //     let exists = filters[type].map(e=>{
     //         return e[0] == value[0]
@@ -164,13 +188,34 @@ export default function ProductFilters({ onFilterChange }) {
         </button>
     </div> */}
 
-            <div className="filter-link text-end d-sm-none">
+            <div className={`filter-link d-sm-none ${catViseProductsearch ? "d-flex justify-content-between" : "text-end"}`}>
+                {console.log(catViseProductsearch)}
+                {catViseProductsearch ? <>
+                    <div class="mb-3">
+                        <div class="input-group">
+                            <span class="input-group-text bg-white border-end-0">
+                                <i class="bi bi-search"></i>
+                            </span>
+                            <input
+                                type="text"
+                                className="form-control"
+                                id="filterSearchInput"
+                                placeholder="Search "
+                                onChange={filterOptions}
+                            />
+                        </div>
+                    </div>
+                </> : ""}
                 <div onClick={() => setIsMobileFiltersOpen(!isMobileFiltersOpen)}
                     style={{ cursor: "pointer" }}>
                     <i className="bi bi-funnel-fill"></i>
                     <span>Filter</span>
                 </div>
+
+
             </div>
+
+
 
 
 
