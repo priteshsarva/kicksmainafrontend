@@ -47,13 +47,14 @@ const AllProducts = () => {
         }
     };
 
+    //old with error of duplicate q parameters
 
     const handleFilterChange = (newFilters) => {
         console.log(newFilters);
 
         let urls = `${baseUrl}/product/search?`;
 
-        
+
         if (newFilters.brands.length > 0) {
             console.log("brand filter applied");
             console.log(newFilters.brands[0]);
@@ -85,25 +86,24 @@ const AllProducts = () => {
             urls += `size=${encodeURIComponent(newFilters.sizes[0])}&`;
         }
 
-        if (newFilters.searchIncategoryByName.length > 0) {
-            console.log("searchIncategoryByNamesize filter applied");
+        console.log(newFilters);
 
-            urls += `category=${encodeURIComponent(searchcategory)}&q=${newFilters.searchIncategoryByName}&`;
 
-            // urls += `size=${encodeURIComponent(newFilters.sizes[0])}&`;
+        if (newFilters.searchIncategoryByName && newFilters.searchIncategoryByName.length > 0) {
+
+            console.log("searchIncategoryByNamesize filter name");
+            urls += `category=${encodeURIComponent(searchcategory)}&q=${encodeURIComponent(newFilters.searchIncategoryByName)}&`;           
+
         }
 
-        // Remove trailing '&' if it exists
-        // if (urls.endsWith('&')) {
-        //     urls = urls.slice(0, -1);
-        // }
-        // product / search ? q = { jor } & size={ 42 }& category={ men }& result={ 2 }& page={ 2 }
+
+
+
+        console.log(urls);
         let page = curentPage + 1
         seturl(`${urls}&result=20&page=?`)
 
-
         urls += `result=20&page=1`;
-
 
         console.log("Constructed URL:", urls);
 
@@ -146,7 +146,7 @@ const AllProducts = () => {
             .then(data => {
                 if (data.results && data.results.length > 0) {
                     setproducts([...(products || []), ...data.results]);
-
+                    
                     setnoproductFound(false);
                     settotalPage(data.totalPages);
                     setcurentPage(nextPage);
@@ -169,9 +169,7 @@ const AllProducts = () => {
         if (products != '') {
             if (searchterm) {
                 const filtered = products.filter(product => {
-
                     const matchesBrand = product.productName.toLowerCase().includes(searchterm.toLowerCase());
-
                     return matchesBrand;
                 });
                 setFilteredProducts(filtered);
@@ -184,7 +182,6 @@ const AllProducts = () => {
                 const filtered = products.products.filter(product => {
 
                     const matchesBrand = product.catName.toLowerCase().includes(searchcategory.toLowerCase());
-
                     return matchesBrand;
                 });
                 setFilteredProducts(filtered);

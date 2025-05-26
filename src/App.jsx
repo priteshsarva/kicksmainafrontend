@@ -29,7 +29,6 @@ const App = () => {
 
   const [products, setproducts] = useState('')
 
-
   useEffect(() => {
     if (products == '') {
       fetch(`${baseUrl}/product/firstdata`, {
@@ -41,7 +40,6 @@ const App = () => {
         })
         .catch(error => console.error('Error:', error));
     }
-
   }, [products])
 
 

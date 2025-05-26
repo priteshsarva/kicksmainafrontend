@@ -7,6 +7,7 @@ export default function ProductFilters({ onFilterChange, catViseProductsearch })
         sizes: [],
         priceRange: [0, 1000],
     });
+    const [searchedValue, setsearchedValue] = useState("")
 
     const [isMobileFiltersOpen, setIsMobileFiltersOpen] = useState(false); // State for mobile dropdown
 
@@ -126,7 +127,8 @@ export default function ProductFilters({ onFilterChange, catViseProductsearch })
     const handleToggleableRadio = (type, value) => {
         const newFilters = {
             ...filters,
-            [type]: filters[type][0] === value ? [] : [value]
+            [type]: filters[type][0] === value ? [] : [value],
+            searchIncategoryByName: searchedValue === "" ? "" : searchedValue.toLowerCase()
         };
         setFilters(newFilters);
         onFilterChange(newFilters);
@@ -135,7 +137,7 @@ export default function ProductFilters({ onFilterChange, catViseProductsearch })
 
     const filterOptions = (e) => {
         const inputValue = e.target.value;
-
+setsearchedValue(inputValue)
         const newFilters = {
             ...filters,
             searchIncategoryByName: inputValue.toLowerCase()
