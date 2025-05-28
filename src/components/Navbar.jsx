@@ -129,21 +129,21 @@ const NavBaar = (products) => {
       {/* Second Line Header */}
       <Navbar expand="md" className="border-bottom py-1 d-none d-md-block bg-white">
         <Container fluid className="justify-content-center">
-          <Nav className="gap-4 text-center">
+          <Nav className="gap-4 text-center"> 
             <Nav.Link ><Link to={`/search/nik`} className="text-dark text-decoration-none "> Nike</Link></Nav.Link>
             <Nav.Link ><Link to={`/search/Jor`} className="text-dark text-decoration-none"> Jordan</Link></Nav.Link>
             <Nav.Link ><Link to={`/search/Yee`} className="text-dark text-decoration-none"> Yeezy</Link></Nav.Link>
-            <Nav.Link ><Link to={`/search/Air`} className="text-dark text-decoration-none"> Airforce</Link></Nav.Link>
+            <Nav.Link ><Link to={`/search/force`} className="text-dark text-decoration-none"> Airforce</Link></Nav.Link>
             <Nav.Link ><Link to={`/search/dun`} className="text-dark text-decoration-none"> Dunks</Link></Nav.Link>
             <Nav.Link ><Link to={`/search/adi`} className="text-dark text-decoration-none"> Adidas</Link></Nav.Link>
             <Nav.Link ><Link to={`/search/bal`} className="text-dark text-decoration-none"> New balance</Link> </Nav.Link>
-            <Nav.Link ><Link to={`/search/lou`} className="text-dark text-decoration-none"> Louis Vuitton</Link> </Nav.Link>
-            <Nav.Link ><Link to={`/search/cor`} className="text-dark text-decoration-none"> Corcs slide </Link></Nav.Link>
+            <Nav.Link ><Link to={`/search/Vuitton`} className="text-dark text-decoration-none"> Louis Vuitton</Link> </Nav.Link>
+            <Nav.Link ><Link to={`/search/croc`} className="text-dark text-decoration-none"> Corcs slide </Link></Nav.Link>
             <Nav.Link ><Link to={`/search/pum`} className="text-dark text-decoration-none"> Puma</Link></Nav.Link>
             <Nav.Link ><Link to={`/search/oni`} className="text-dark text-decoration-none"> Onitsuka</Link></Nav.Link>
             <Nav.Link ><Link to={`/search/asi`} className="text-dark text-decoration-none"> Asics</Link></Nav.Link>
             <Nav.Link ><Link to={`/search/van`} className="text-dark text-decoration-none"> Vans</Link></Nav.Link>
-            <Nav.Link ><Link to={`/search/con`} className="text-dark text-decoration-none"> Converse</Link></Nav.Link>
+            <Nav.Link ><Link to={`/search/conver`} className="text-dark text-decoration-none"> Converse</Link></Nav.Link>
             <Nav.Link ><Link to={`/search/qua`} className="text-dark text-decoration-none"> UA QUALITY </Link></Nav.Link>
 
 
@@ -316,7 +316,7 @@ const NavBaar = (products) => {
                 <path fill-rule="evenodd" clip-rule="evenodd" d="M8.537.808a.5.5 0 01.817-.162l4 4a.5.5 0 010 .708l-4 4a.5.5 0 11-.708-.708L11.793 5.5H1a.5.5 0 010-1h10.793L8.646 1.354a.5.5 0 01-.109-.546z" fill="currentColor"></path>
               </svg>
             </Link></Nav.Link>
-            <Nav.Link ><Link to={`/search/Air`} className="text-dark text-decoration-none" onClick={() => { setShowMenu(false) }}> Airforce
+            <Nav.Link ><Link to={`/search/force`} className="text-dark text-decoration-none" onClick={() => { setShowMenu(false) }}> Airforce
               <svg viewBox="0 0 14 10" fill="none" aria-hidden="true" focusable="false" class="icon icon-arrow ms-1" width="14" height="10" xmlns="http://www.w3.org/2000/svg">
                 <path fill-rule="evenodd" clip-rule="evenodd" d="M8.537.808a.5.5 0 01.817-.162l4 4a.5.5 0 010 .708l-4 4a.5.5 0 11-.708-.708L11.793 5.5H1a.5.5 0 010-1h10.793L8.646 1.354a.5.5 0 01-.109-.546z" fill="currentColor"></path>
               </svg>
@@ -336,12 +336,12 @@ const NavBaar = (products) => {
                 <path fill-rule="evenodd" clip-rule="evenodd" d="M8.537.808a.5.5 0 01.817-.162l4 4a.5.5 0 010 .708l-4 4a.5.5 0 11-.708-.708L11.793 5.5H1a.5.5 0 010-1h10.793L8.646 1.354a.5.5 0 01-.109-.546z" fill="currentColor"></path>
               </svg>
             </Link></Nav.Link>
-            <Nav.Link ><Link to={`/search/lou`} className="text-dark text-decoration-none" onClick={() => { setShowMenu(false) }}> Louis Vuitton
+            <Nav.Link ><Link to={`/search/Vuitton`} className="text-dark text-decoration-none" onClick={() => { setShowMenu(false) }}> Louis Vuitton
               <svg viewBox="0 0 14 10" fill="none" aria-hidden="true" focusable="false" class="icon icon-arrow ms-1" width="14" height="10" xmlns="http://www.w3.org/2000/svg">
                 <path fill-rule="evenodd" clip-rule="evenodd" d="M8.537.808a.5.5 0 01.817-.162l4 4a.5.5 0 010 .708l-4 4a.5.5 0 11-.708-.708L11.793 5.5H1a.5.5 0 010-1h10.793L8.646 1.354a.5.5 0 01-.109-.546z" fill="currentColor"></path>
               </svg>
             </Link></Nav.Link>
-            <Nav.Link ><Link to={`/search/cor`} className="text-dark text-decoration-none" onClick={() => { setShowMenu(false) }}> Corcs slide
+            <Nav.Link ><Link to={`/search/croc`} className="text-dark text-decoration-none" onClick={() => { setShowMenu(false) }}> Corcs slide
               <svg viewBox="0 0 14 10" fill="none" aria-hidden="true" focusable="false" class="icon icon-arrow ms-1" width="14" height="10" xmlns="http://www.w3.org/2000/svg">
                 <path fill-rule="evenodd" clip-rule="evenodd" d="M8.537.808a.5.5 0 01.817-.162l4 4a.5.5 0 010 .708l-4 4a.5.5 0 11-.708-.708L11.793 5.5H1a.5.5 0 010-1h10.793L8.646 1.354a.5.5 0 01-.109-.546z" fill="currentColor"></path>
               </svg>
@@ -366,7 +366,7 @@ const NavBaar = (products) => {
                 <path fill-rule="evenodd" clip-rule="evenodd" d="M8.537.808a.5.5 0 01.817-.162l4 4a.5.5 0 010 .708l-4 4a.5.5 0 11-.708-.708L11.793 5.5H1a.5.5 0 010-1h10.793L8.646 1.354a.5.5 0 01-.109-.546z" fill="currentColor"></path>
               </svg>
             </Link></Nav.Link>
-            <Nav.Link ><Link to={`/search/con`} className="text-dark text-decoration-none" onClick={() => { setShowMenu(false) }}> Converse
+            <Nav.Link ><Link to={`/search/conver`} className="text-dark text-decoration-none" onClick={() => { setShowMenu(false) }}> Converse
               <svg viewBox="0 0 14 10" fill="none" aria-hidden="true" focusable="false" class="icon icon-arrow ms-1" width="14" height="10" xmlns="http://www.w3.org/2000/svg">
                 <path fill-rule="evenodd" clip-rule="evenodd" d="M8.537.808a.5.5 0 01.817-.162l4 4a.5.5 0 010 .708l-4 4a.5.5 0 11-.708-.708L11.793 5.5H1a.5.5 0 010-1h10.793L8.646 1.354a.5.5 0 01-.109-.546z" fill="currentColor"></path>
               </svg>
