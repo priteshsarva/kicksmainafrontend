@@ -23,7 +23,7 @@ export default function ShoeCarousel({ productss }) {
     "45": ["45", "45/10", "45/10.5", "45/11", "45-10", "45-10.5", "45-11", "45-m11", "UK 11", "UK11", "UK-11", "UK 11 / EURO 45", "UK 11|EURO 45", "UK-11 EUR-45", "EURO 45", "Euro 45", "M-11", "m-11", "M11", "Size 45", "11", "10.5", "UK 11/EURO 45", "45/uk11/m11", "45 UK 11", "45-UK 11", "45-UK11", "Euro-45. Uk-10", "M11-45"],
     "46": ["46", "46/11", "46-11", "46-m12", "UK 12", "UK12", "UK-12", "UK 12 / EURO 47", "EURO 46", "Euro 46", "Size 46", "UK-11 EUR-46"],
     "47": ["47", "47/12", "UK 12 / EURO 47", "Size 47"]
-  };
+};
 
   const normalizeSize = (inputSize) => {
     console.log("normalized");
@@ -96,7 +96,7 @@ export default function ShoeCarousel({ productss }) {
               style={{ width: '200px' }}
             >
               <div class="card border-0 h-100 product-card  rounded-0" style={{ overflow: 'hidden' }}>
-                <Link to={`/product/${product.productId}`} target='_blank' class="text-decoration-none position-relative" data-discover="true" style={{ color: 'inherit' }}>
+                <Link to={`/product/${product.productId}`}  target='_blank' class="text-decoration-none position-relative" data-discover="true" style={{ color: 'inherit' }}>
                   <div class="card-img-container position-relative ">
                     <img
                       class="card-img-top  top-0 start-0 w-100 object-fit-cover transition-opacity rounded-0"
