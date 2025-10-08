@@ -501,15 +501,6 @@ export default function ProductPage({ }) {
               </Slider>
                 : " no results found"}
 
-
-
-
-
-
-
-
-
-
             </div>
             {showModal && (
               <div className="modal fade show d-block" tabIndex="-1" role="dialog" style={{ backgroundColor: 'rgba(0,0,0,0.5)' }}>
