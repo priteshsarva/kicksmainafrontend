@@ -75,7 +75,7 @@ export default function ProductPage({ }) {
 };
 
   const normalizeSize = (inputSize) => {
-    console.log("normalized");
+    // console.log("normalized");
 
     for (const [baseSize, variants] of Object.entries(sizeMap)) {
       if (variants.includes(inputSize)) {
@@ -146,7 +146,7 @@ export default function ProductPage({ }) {
 
 
   useEffect(() => {
-    console.log(baseUrl);
+    // console.log(baseUrl);
     sethash(window.location.hash);
 
     // Fetch product details
@@ -159,7 +159,7 @@ export default function ProductPage({ }) {
         setSelectedImage(Array.isArray(data.results[0].image) ? data.results.image[0] : data.results[0].featuredimg);
         setimageUrlArray(JSON.parse(data.results[0].imageUrl));
         setsizes(JSON.parse(data.results[0].sizeName));
-        console.log("data", data);
+        // console.log("data", data);
       })
       .catch(error => console.error('Error:', error));
 
@@ -174,7 +174,7 @@ export default function ProductPage({ }) {
         .then(response => response.json())
         .then(data => {
           setsimillarproducts(data.results);
-          console.log(data.results);
+          // console.log(data.results);
         })
         .catch(error => console.error('Error in Similar:', error));
     }

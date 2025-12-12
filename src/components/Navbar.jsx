@@ -46,7 +46,7 @@ const NavBaar = (products) => {
   // };
 
   const normalizeSize = (inputSize) => {
-    console.log("normalized");
+    // console.log("normalized");
 
     for (const [baseSize, variants] of Object.entries(sizeMap)) {
       if (variants.includes(inputSize)) {
@@ -59,14 +59,14 @@ const NavBaar = (products) => {
     const term = e.target.value.toLowerCase();
     setSearchTerm(term);
 
-    console.log(term);
+    // console.log(term);
     let urls = `${baseUrl}/product/search?q=${term}`;
     fetch(urls, {
       method: 'GET',
     })
       .then(response => response.json())
       .then(data => {
-        console.log(data.results);
+        // console.log(data.results);
         setSearchResults(data.results);
 
       })
@@ -180,8 +180,7 @@ const NavBaar = (products) => {
                   onChange={handleSearch}
                   autoFocus
                 />
-                <Button variant="outline-secondary" onClick={console.log({ products })
-                }>
+                <Button variant="outline-secondary">
                   <FaSearch />
                 </Button>
               </div>

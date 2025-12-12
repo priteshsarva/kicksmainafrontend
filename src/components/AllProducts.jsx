@@ -18,7 +18,7 @@ const AllProducts = () => {
     const [noproductFound, setnoproductFound] = useState(false)
     const [totalPage, settotalPage] = useState()
     const [curentPage, setcurentPage] = useState()
-    console.log(searchterm, searchcategory);
+    // console.log(searchterm, searchcategory);
 
     const [catViseProductsearch, setcatViseProductsearch] = useState(false)
 
@@ -39,7 +39,7 @@ const AllProducts = () => {
     const filterByCategory = (product, category) => {
         try {
             const categories = product.catName.toLowerCase(); // Convert JSON string to array
-            console.log(categories.includes(category));
+            // console.log(categories.includes(category));
             return categories.includes(category.toString().toLowerCase());
         } catch (error) {
             console.error("Error parsing sizeName for product:", product.productId, error);
@@ -50,14 +50,14 @@ const AllProducts = () => {
     //old with error of duplicate q parameters
 
     const handleFilterChange = (newFilters) => {
-        console.log(newFilters);
+        // console.log(newFilters);
 
         let urls = `${baseUrl}/product/search?`;
 
 
         if (newFilters.brands.length > 0) {
-            console.log("brand filter applied");
-            console.log(newFilters.brands[0]);
+            // console.log("brand filter applied");
+            // console.log(newFilters.brands[0]);
 
             if (newFilters.brands[0] === "Crocs Slide") {
                 urls += `q=${encodeURIComponent("croc")}&`;
@@ -77,21 +77,21 @@ const AllProducts = () => {
         }
 
         if (newFilters.categories.length > 0) {
-            console.log("category filter applied");
+            // console.log("category filter applied");
             urls += `category=${encodeURIComponent(newFilters.categories[0])}&`;
         }
 
         if (newFilters.sizes.length > 0) {
-            console.log("size filter applied");
+            // console.log("size filter applied");
             urls += `size=${encodeURIComponent(newFilters.sizes[0])}&`;
         }
 
-        console.log(newFilters);
+        // console.log(newFilters);
 
 
         if (newFilters.searchIncategoryByName && newFilters.searchIncategoryByName.length > 0) {
 
-            console.log("searchIncategoryByNamesize filter name");
+            // console.log("searchIncategoryByNamesize filter name");
             urls += `category=${encodeURIComponent(searchcategory)}&q=${encodeURIComponent(newFilters.searchIncategoryByName)}&`;           
 
         }
@@ -99,13 +99,13 @@ const AllProducts = () => {
 
 
 
-        console.log(urls);
+        // console.log(urls);
         let page = curentPage + 1
         seturl(`${urls}&result=20&page=?`)
 
         urls += `result=20&page=1`;
 
-        console.log("Constructed URL:", urls);
+        // console.log("Constructed URL:", urls);
 
 
         fetch(urls, {
@@ -131,13 +131,13 @@ const AllProducts = () => {
 
     const handleloadmore = () => {
         const nextPage = curentPage + 1;
-        console.log(totalPage);
-        console.log(curentPage);
+        // console.log(totalPage);
+        // console.log(curentPage);
 
 
         // Update the page number in the existing URL
         const updatedUrl = url.replace("page=?", `page=${nextPage}`);
-        console.log("Loading from URL:", updatedUrl);
+        // console.log("Loading from URL:", updatedUrl);
 
         fetch(updatedUrl, {
             method: 'GET',
@@ -164,7 +164,7 @@ const AllProducts = () => {
     useEffect(() => {
         sethash(window.location.hash)
 
-        console.log(filteredProducts);
+        // console.log(filteredProducts);
 
         if (products != '') {
             if (searchterm) {
@@ -210,7 +210,6 @@ const AllProducts = () => {
         let page = curentPage + 1
         seturl(`${urls}&result=20&page=?`)
 
-        console.log(urls);
 
 
 
@@ -223,9 +222,7 @@ const AllProducts = () => {
                 settotalPage(data.totalPages)
                 setcurentPage(1)
 
-                // products = data.results
-                console.log(data.results);
-                console.log(products);
+
             })
             .catch(error => console.error('Error:', error));
 

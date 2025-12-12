@@ -26,7 +26,7 @@ export default function ShoeCarousel({ productss }) {
 };
 
   const normalizeSize = (inputSize) => {
-    console.log("normalized");
+    // console.log("normalized");
 
     for (const [baseSize, variants] of Object.entries(sizeMap)) {
       if (variants.includes(inputSize)) {

@@ -111,7 +111,6 @@ export default function ProductFilters({ onFilterChange, catViseProductsearch })
                 ? filters[type].filter((item) => item !== value.slice(0, 3))
                 : [...filters[type], value.slice(0, 3)],
         };
-        console.log(filters[type].includes(value))
         setFilters(newFilters);
         onFilterChange(newFilters);
     };
@@ -191,7 +190,6 @@ setsearchedValue(inputValue)
     </div> */}
 
             <div className={`filter-link d-sm-none ${catViseProductsearch ? "d-flex justify-content-between" : "text-end"}`}>
-                {console.log(catViseProductsearch)}
                 {catViseProductsearch ? <>
                     <div class="mb-3">
                         <div class="input-group">
