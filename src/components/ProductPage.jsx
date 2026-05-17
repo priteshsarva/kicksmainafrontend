@@ -74,16 +74,49 @@ export default function ProductPage({ }) {
     "47": ["47", "47/12", "UK 12 / EURO 47", "Size 47"]
 };
 
-  const normalizeSize = (inputSize) => {
-    // console.log("normalized");
+const normalizeSize = (inputSize) => {
+  if (!inputSize) return inputSize;
 
+  // 1. Helper function to lowercase and strip all spaces/hyphens
+  const cleanString = (str) => String(str).toLowerCase().replace(/[\s-]/g, "");
+
+  // 2. Split input by "/" and clean each individual piece
+  const cleanedInputParts = String(inputSize)
+    .split("/")
+    .map(part => cleanString(part))
+    .filter(part => part.length > 0);
+
+  // 3. Process each split part one by one (Ensures early termination)
+  for (const inputPart of cleanedInputParts) {
+    
+    // Check this part against our size map
     for (const [baseSize, variants] of Object.entries(sizeMap)) {
-      if (variants.includes(inputSize)) {
+      
+      const isMatch = variants.some(variant => {
+        const cleanVariant = cleanString(variant);
+
+        // Exact match check
+        if (inputPart === cleanVariant) return true;
+
+        // Strict matching for pure numbers to prevent "6" from matching "46"
+        const isPureNumber = /^\d+(\.\d+)?$/.test(inputPart) || /^\d+(\.\d+)?$/.test(cleanVariant);
+        if (isPureNumber) {
+          return inputPart === cleanVariant;
+        }
+
+        // Substring match for alphanumeric strings (e.g., "uk6" matching "40uk6")
+        return inputPart.includes(cleanVariant) || cleanVariant.includes(inputPart);
+      });
+
+      // Break out completely and return the very first base size that hits
+      if (isMatch) {
         return baseSize;
       }
     }
-    return inputSize; // fallback if not found
-  };
+  }
+
+  return inputSize; // Fallback if absolutely no match is found
+};
 
   const handleToggle = (e) => {
     if (!selectedSize) {
